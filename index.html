@@ -285,8 +285,30 @@ Users can participate in demo tournaments, as well as use their
 <section class="hero">
   <h1>FOREX TOURNAMENTS ARENA DOWNLOAD</h1>
   <p>Compete Globally. Become a Champion. Rule the Market/Lead the competitions.</p>
-  <a href="app-release.apk" class="btn">Download Android App</a>
+  <a href="/fx-arena.apk" class="btn">Download Android App</a>
 </section>
+
+<script>
+  // Read the ?ref= parameter from the URL
+  const params = new URLSearchParams(window.location.search);
+  const ref = params.get("ref");
+    // Update the download button to include the referral info
+    const downloadBtn = document.querySelector(".hero .btn");
+   if (ref) {
+  downloadBtn.href = `/fx-arena.apk?ref=${ref}`;
+} else {
+  downloadBtn.href = `/fx-arena.apk`;
+}
+// Optional: show message
+  if (ref) {
+    const refMessage = document.createElement("p");
+    refMessage.innerText = `You were invited by user ${ref}!`;
+    refMessage.style.color = "#4e2cff";
+    refMessage.style.fontWeight = "bold";
+    refMessage.style.marginTop = "10px";
+    document.querySelector(".hero").appendChild(refMessage);
+  }
+</script>
 
 <section class="risk-warning">
   <p>
