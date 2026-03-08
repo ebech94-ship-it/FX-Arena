@@ -45,7 +45,7 @@ footer a:hover {  color: orange;}
 .legal-container h2 {  margin-top: 25px;  font-size: 20px;}
 .legal-container p {  margin-top: 8px;  line-height: 1.6;  color: #ccc;}
 /* About Section */
-.about {  background: #0f5aca;  padding: 100px 20px;  text-align: center;  color: #111;}
+.about {  background: #ffffff;  padding: 100px 20px;  text-align: center;  color: #111;}
 
 .about h2 {  font-size: 36px;  margin-bottom: 30px;  background: 
   linear-gradient(90deg, #5f2eea, #007bff);
