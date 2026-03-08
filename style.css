@@ -1,5 +1,5 @@
 /* General Reset */
-body {  margin: 0;  font-family: Arial, sans-serif;  background: url('/images/arena.png') 
+body {  margin: 0;  font-family: Arial, sans-serif;  background: url('images/arena.png') 
   no-repeat center center/cover;  color: white;  text-align: center;  scroll-behavior: smooth;}
 /* Top App Icon */
 .top-icon {  position: absolute;  top: 20px;  right: 20px;}
