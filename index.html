@@ -15,7 +15,7 @@
 <!-- Open Graph -->
 <meta property="og:title" content="Forex Tournaments Arena">
 <meta property="og:description" content="Compete globally in forex trading tournaments and climb the leaderboard.">
-<meta property="og:image" content="https://forex-app-p1.vercel.app/images/icon.png">
+<meta property="og:image" content="icon.png">
 <meta property="og:url" content="https://forex-app-p1.vercel.app/">
 <meta property="og:type" content="website">
 
@@ -23,9 +23,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Forex Tournaments Arena">
 <meta name="twitter:description" content="Practice. Compete. Win. Join global forex tournaments today.">
-<meta name="twitter:image" content="https://forex-app-p1.vercel.app/images/icon.png">
+<meta name="twitter:image" content="icon.png">
 
-<link rel="icon" href="/images/icon.png" type="image/png">
+<link rel="icon" href="icon.png" type="image/png">
 <meta name="theme-color" content="#0a0f1c">
 
 <link rel="stylesheet" href="style.css">
@@ -34,7 +34,7 @@
 <body>
 
 <div class="top-icon">
-<img src="/images/icon.png" alt="FX Arena App Icon">
+<img src="icon.png" alt="FX Arena App Icon">
 </div>
 
 <section class="features">
@@ -71,7 +71,7 @@ Join live Forex tournaments with players worldwide. Practice in demo mode or com
 Fun, strategic, and rewarding!
 </p>
 
-<img src="/images/screenshot.png" alt="App Screenshot" class="screenshot">
+<img src="screenshot.png" alt="App Screenshot" class="screenshot">
 
 </div>
 
@@ -186,7 +186,7 @@ In FX Arena tournaments, strategy, discipline, and timing determine success.
 <h3>1. Register</h3>
 
 <p>
-Download the app, sign up and verify your profile information.
+Sign up and verify your profile information.
 </p>
 
 </div>
@@ -249,62 +249,43 @@ Losses reduce your ranking.
 Compete Globally. Become a Champion. Rule the Market.
 </p>
 
-<a href="/fx-arena.apk" class="btn" download="fx-arena.apk">
-Download Android App
-</a>
+<p><em>Android App coming soon.</em></p>
 
 </section>
 
 <script>
 
-const downloadBtn = document.querySelector(".hero .btn");
-const params = new URLSearchParams(window.location.search);
-const ref = params.get("ref");
+const accBtns = document.querySelectorAll(".accordion-btn");
 
-if(downloadBtn){
+accBtns.forEach(btn => {
 
-let apkPath = "/fx-arena.apk";
+btn.addEventListener("click", () => {
 
-if(ref){
+btn.classList.toggle("active");
 
-apkPath += "?ref=" + ref;
+const content = btn.nextElementSibling;
 
-}
+if(content.style.maxHeight){
 
-downloadBtn.href = apkPath;
-downloadBtn.setAttribute("download","fx-arena.apk");
+content.style.maxHeight = null;
 
-}
+}else{
 
-if(ref){
-
-const hero = document.querySelector(".hero");
-
-if(hero){
-
-const refMessage = document.createElement("p");
-
-refMessage.innerText = `You were invited by user ${ref}!`;
-
-refMessage.style.color = "#4e2cff";
-refMessage.style.fontWeight = "bold";
-refMessage.style.marginTop = "10px";
-
-hero.appendChild(refMessage);
+content.style.maxHeight = content.scrollHeight + "px";
 
 }
 
-}
+});
+
+});
 
 </script>
 
 <section class="risk-warning">
 
 <p>
-
 ⚠️ FX Arena provides simulated trading competitions.
 No real-money trading is executed nor broker services provided.
-
 </p>
 
 </section>
@@ -314,10 +295,8 @@ No real-money trading is executed nor broker services provided.
 <h2>About the Company</h2>
 
 <p class="company-body">
-
 FX Arena is a product of <strong>GodSpeed Technologies</strong>,
 founded by <strong>Bechem Lap</strong>.
-
 </p>
 
 </section>
@@ -348,34 +327,6 @@ founded by <strong>Bechem Lap</strong>.
 <p>© 2026 FX Arena. All rights reserved.</p>
 
 </footer>
-
-<script>
-
-const accBtns = document.querySelectorAll(".accordion-btn");
-
-accBtns.forEach(btn => {
-
-btn.addEventListener("click", () => {
-
-btn.classList.toggle("active");
-
-const content = btn.nextElementSibling;
-
-if(content.style.maxHeight){
-
-content.style.maxHeight = null;
-
-}else{
-
-content.style.maxHeight = content.scrollHeight + "px";
-
-}
-
-});
-
-});
-
-</script>
 
 </body>
 </html>
