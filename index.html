@@ -3,23 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FX Arena | Forex Tournaments</title>
+  <title>Forex Trading Tournaments | FX Arena</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="images/icon.png" type="image/png">
 </head>
 <body>
 
-  <!-- Header / Logo -->
-  <header>
-    <img src="images/icon.png" alt="FX Arena Logo" class="logo">
-    <h1>FX Arena - Compete. Trade. Win.</h1>
-  </header>
+  <!-- Top App Icon -->
+  <div class="top-icon">
+    <img src="images/icon.png" alt="FX Arena App Icon">
+  </div>
 
-  <!-- Download Section -->
-  <section class="download">
-    <h2>Download the App</h2>
-    <a href="fx-arena.apk" class="btn" download>Download Android App</a>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>FOREX TOURNAMENTS</h1>
+    <p>Compete Globally. Become a Champion. Win Real Cash. Rule the Market.</p>
+    <a href="app-release.apk" class="btn">Download Android App</a>
   </section>
 
+  <!-- Features / Tournament Info -->
+  <section class="features">
+    <h2>How FX Arena Works</h2>
+    <div class="accordion">
+      <button class="accordion-btn">Tournament Overview</button>
+      <div class="accordion-content">
+        <p>Join live Forex tournaments with players worldwide. Practice in demo mode or compete in real cash tournaments. Fun, strategic, and rewarding!</p>
+        <img src="images/screenshot.png" alt="App Screenshot" class="screenshot">
+      </div>
+
+      <button class="accordion-btn">Getting Started</button>
+      <div class="accordion-content">
+        <p>Click Download, install the app, accept terms & conditions by thicking the box, sign up, and start practicing or participating in live tournaments. Experience trading like a pro!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Footer -->
+  <footer>
+    <h3>Contact Us</h3>
+    <p><span>📧</span> Email: <a href="mailto:ebech94@gmail.com">ebech94@gmail.com</a></p>
+    <p><span>📱</span> WhatsApp: <a href="https://wa.me/237682783789" target="_blank">+237-682-783-789</a></p>
+    <p>&copy; 2026 FX Arena. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Simple Accordion for feature sections
+    const accBtns = document.querySelectorAll(".accordion-btn");
+    accBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        btn.classList.toggle("active");
+        const content = btn.nextElementSibling;
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    });
+  </script>
 </body>
 </html>
