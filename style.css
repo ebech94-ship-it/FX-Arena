@@ -45,7 +45,7 @@ footer a:hover {  color: orange;}
 .legal-container h2 {  margin-top: 25px;  font-size: 20px;}
 .legal-container p {  margin-top: 8px;  line-height: 1.6;  color: #ccc;}
 /* About Section */
-.about {  background: #ffffff;  padding: 100px 20px;  text-align: center;  color: #111;}
+.about {  background: #0f5aca;  padding: 100px 20px;  text-align: center;  color: #111;}
 
 .about h2 {  font-size: 36px;  margin-bottom: 30px;  background: 
   linear-gradient(90deg, #5f2eea, #007bff);
@@ -99,15 +99,5 @@ footer a:hover {  color: orange;}
 
 .company-body {  font-family: 'Georgia', serif; /* different body style */  color: #333; 
  line-height: 1.6;  font-size: 16px;  margin-bottom: 10px;}
- .top-icon {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 999;
-}
-.about {
-  background: rgba(17,17,17,0.95);
-  color: white;
-}
-
+ 
 .company-body-em {  font-style: italic;  color: #555;  font-size: 15px;}
