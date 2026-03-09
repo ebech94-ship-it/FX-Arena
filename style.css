@@ -188,7 +188,16 @@ p{
   margin-bottom:10px;
 }
 
-
+.highlight-heading {
+  font-size: 28px;           /* slightly bigger */
+  font-weight: 700;          /* bolder */
+  color: #22c55e;            /* vibrant, eye-catching color */
+  text-align: center;        /* centered for emphasis */
+  margin: 30px 0 20px 0;     /* spacing before and after */
+  text-transform: uppercase; /* optional for impact */
+  letter-spacing: 1px;       /* subtle spacing */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* subtle depth */
+}
 /* ===== Hero Download Section ===== */
 .hero{
   text-align:center;
