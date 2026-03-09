@@ -22,7 +22,8 @@ body{
 }
 
 .top-icon img{
-  width:80px;
+  width: 120px;
+  height: auto; 
 }
 
 /* ===== Section Spacing ===== */
