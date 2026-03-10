@@ -56,6 +56,36 @@ p{
   max-width:1100px;
   margin:auto;
 }
+.app-screenshots {
+  text-align: center;
+  background: #f7f9fc; /* light background to separate section */
+  padding: 40px 20px;
+}
+
+.app-screenshots h2 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #222;
+}
+
+.screenshots-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.app-screenshot {
+  max-width: 160px;   /* keeps them small and neat */
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.app-screenshot:hover {
+  transform: scale(1.05); /* subtle hover effect */
+}
 
 /* ===== Grid Cards ===== */
 .info-grid{
@@ -188,6 +218,12 @@ p{
   color:#22c55e;
   margin-bottom:10px;
 }
+.apk-size {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 5px;
+  text-align: center;
+}
 
 .highlight-heading {
   font-size: 28px;           /* slightly bigger */
@@ -198,6 +234,57 @@ p{
   text-transform: uppercase; /* optional for impact */
   letter-spacing: 1px;       /* subtle spacing */
   text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* subtle depth */
+
+}
+
+.founder-section {
+  background: #eef4f8; /* soft background for contrast */
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.founder-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.founder-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 4px solid #4a90e2; /* adds a subtle highlight */
+  object-fit: cover;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.founder-pic:hover {
+  transform: scale(1.05);
+}
+
+.founder-text {
+  max-width: 500px;
+}
+
+.founder-text h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.founder-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+}
+.founder-name {
+  margin-top: 15px;
+  font-style: italic;
+  color: #4a90e2; /* matches the border color */
+  font-weight: 600;
 }
 /* ===== Hero Download Section ===== */
 .hero{
