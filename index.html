@@ -275,7 +275,9 @@ We are continuously improving FX Arena to bring new features, better performance
   <p>Compete Globally. Become a Champion. Win Real Cash. Rule the Market, lead the competitions.</p>
 
   <!-- Download button -->
-  <a id="download-btn" href="/app-release.apk" class="btn">Download Android App</a>
+<a id="download-btn" href="/app-release.apk" download="FX-Arena.apk" class="btn">
+Download Android App
+</a>
 
   <!-- Referral script -->
   <script>
@@ -292,7 +294,7 @@ We are continuously improving FX Arena to bring new features, better performance
 
         // Update download button link
         const downloadBtn = document.getElementById('download-btn');
-        if (downloadBtn) downloadBtn.href = `app-release.apk?ref=${storedRef}`;
+        if (downloadBtn) downloadBtn.href = `/app-release.apk?ref=${storedRef}`;
       }
     })();
   </script>
