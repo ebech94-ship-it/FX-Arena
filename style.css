@@ -316,6 +316,35 @@ p{
 .btn:hover{
   background:#16a34a;
 }
+.install-guide{
+margin-top:40px;
+text-align:center;
+}
+
+.install-guide h3{
+margin-bottom:20px;
+font-size:24px;
+}
+
+.install-steps{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+margin-top:20px;
+}
+
+.step{
+background:#121826;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+.step strong{
+display:block;
+margin-bottom:8px;
+font-size:16px;
+}
 
 /* ===== Risk Warning ===== */
 .risk-warning{
