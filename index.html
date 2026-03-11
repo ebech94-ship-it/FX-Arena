@@ -315,31 +315,54 @@ We are continuously improving FX Arena to bring new features, better performance
   <p>Compete Globally. Become a Champion. Win Real Cash. Rule the Market, lead the competitions.</p>
 
   <!-- Download button -->
-<a id="download-btn" href="/app-release.apk" download="FX-Arena.apk" class="btn">
+<a id="download-btn" href="/app-release.apk" download="FX-Arena.apk" class="btn" onclick="downloadStarted()">
 Download Android App
 </a>
 
  <!-- APK size info -->
   <p class="apk-size">File size: 88.9 MB</p>
   <!-- Referral script -->
-  
+  <!-- How To Install -->
+<div class="install-guide">
+
+<h3>How to Install FX Arena</h3>
+
+<div class="install-steps">
+
+<div class="step">
+<strong>1. Tap Download</strong>
+<p>Press the "Download Android App" button above.</p>
+</div>
+
+<div class="step">
+<strong>2. Check Downloads</strong>
+<p>If nothing appears, open your phone notifications or Downloads folder.</p>
+</div>
+
+<div class="step">
+<strong>3. Open APK File</strong>
+<p>Tap the file named <strong>FX-Arena.apk</strong>.</p>
+</div>
+
+<div class="step">
+<strong>4. Allow Install</strong>
+<p>If prompted, allow installation from your browser.</p>
+</div>
+
+<div class="step">
+<strong>5. Launch App</strong>
+<p>Tap Install and start competing in FX Arena.</p>
+</div>
+
+</div>
+</div>
   <script>
-    (function() {
-      const params = new URLSearchParams(window.location.search);
-      const ref = params.get('ref');
-      if (ref) localStorage.setItem('inviteRef', ref);
-
-      const storedRef = localStorage.getItem('inviteRef');
-      if (storedRef) {
-        // Show referral message
-        const refDiv = document.getElementById('ref-message');
-        if (refDiv) refDiv.textContent = `🎉 You were invited by ${storedRef}! Start your journey now.`;
-
-        // Update download button link
-        const downloadBtn = document.getElementById('download-btn');
-        if (downloadBtn) downloadBtn.href = `/app-release.apk?ref=${storedRef}`;
-      }
-    })();
+ 
+function downloadStarted(){
+setTimeout(()=>{
+alert("Download started. Check your notification bar or Downloads folder.");
+},500);
+}
   </script>
 </section>
 
