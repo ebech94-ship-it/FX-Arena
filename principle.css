@@ -86,7 +86,7 @@ body{
   position:fixed;
   top:0;
   left:5;
-  width:260px;
+  width:180px;
   height:60px;
   background:#22c55e;
   color:white;
@@ -111,8 +111,8 @@ body{
 .sidebar{
   position:fixed;
   top:0;
-  left:-260px;
-  width:260px;
+  left:-180px;
+  width:180px;
   height:100%;
   background:#111827;
   padding-top:60px;
