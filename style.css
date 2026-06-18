@@ -494,7 +494,7 @@ body{
   position:fixed;
   top:0;
   left:5;
-  width:260px;
+  width:200px;
   height:60px;
   background:#22c55e;
   color:white;
@@ -519,8 +519,8 @@ body{
 .sidebar{
   position:fixed;
   top:0;
-  left:-260px;
-  width:260px;
+  left:-200px;
+  width:200px;
   height:100%;
   background:#111827;
   padding-top:60px;
@@ -555,4 +555,32 @@ nav a.active{
   background:#22c55e;
   padding:6px 10px;
   border-radius:6px;
+}
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #111827;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  z-index: 2000;
+  border-top: 1px solid #1f2937;
+}
+
+.bottom-nav a {
+  color: #f8fafc;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 8px 12px;
+}
+
+.bottom-nav a:hover {
+  color: #22c55e;
+}
+
+/* active page highlight */
+.bottom-nav a.active {
+  color: #22c55e;
 }
