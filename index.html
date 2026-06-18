@@ -56,9 +56,32 @@
 <body>
 
   <!-- Top App Icon -->
-  <div class="top-icon">
-    <img src="images/icon.png" alt="FX Arena App Icon">
-  </div>
+ <nav class="top-nav">
+  <a href="index.html">Home</a>
+  <a href="learn.html">Learn</a>
+  <a href="principle.html">Principle</a>
+  <a href="fairness.html">Fairness</a>
+  <a href="skills.html">Skills</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<!-- MENU BUTTON -->
+<button class="menu-btn" onclick="toggleMenu()">☰ FX Arena</button>
+
+<!-- OVERLAY -->
+<div id="overlay" class="overlay" onclick="toggleMenu()"></div>
+
+<!-- SIDEBAR -->
+<div id="sidebar" class="sidebar">
+  <a href="index.html">Home</a>
+  <a href="learn.html">Learn</a>
+  <a href="principle.html">Principle</a>
+  <a href="fairness.html">Fairness</a>
+  <a href="skills.html">Skills</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contact.html">Contact</a>
+</div>
 
 <!-- Getting Started -->
 <section class="features">
@@ -444,6 +467,22 @@ accBtns.forEach(btn => {
     if (downloadBtn) downloadBtn.href = `app-release.apk?ref=${storedRef}`;
   }
 })();
+</script>
+<script>
+function toggleMenu(){
+  document.getElementById("sidebar").classList.toggle("show");
+  document.getElementById("overlay").classList.toggle("show");
+}
+</script>
+<script>
+const links = document.querySelectorAll(".top-nav a");
+const currentPage = window.location.pathname.split("/").pop();
+
+links.forEach(link => {
+  if (link.getAttribute("href") === currentPage) {
+    link.classList.add("active");
+  }
+});
 </script>
 </body>
 </html>

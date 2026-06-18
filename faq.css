@@ -142,3 +142,9 @@ body{
 .overlay.show{
   display:block;
 }
+nav a.active{
+  color:#fff;
+  background:#22c55e;
+  padding:6px 10px;
+  border-radius:6px;
+}

@@ -1,6 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The FX Arena Principle</title>
+  <link rel="stylesheet" href="principle.css">
+</head>
 
-<nav>
+<body>
+<nav class="top-nav">
   <a href="index.html">Home</a>
   <a href="learn.html">Learn</a>
   <a href="principle.html">Principle</a>
@@ -9,8 +18,23 @@
   <a href="faq.html">FAQ</a>
   <a href="contact.html">Contact</a>
 </nav>
-<h1>The FX Arena Principle</h1>
 
+<button class="menu-btn" onclick="toggleMenu()">☰ FX Arena</button>
+
+<div id="overlay" class="overlay" onclick="toggleMenu()"></div>
+
+<div id="sidebar" class="sidebar">
+  <a href="index.html">Home</a>
+  <a href="learn.html">Learn</a>
+  <a href="principle.html">Principle</a>
+  <a href="fairness.html">Fairness</a>
+  <a href="skills.html">Skills</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contact.html">Contact</a>
+</div>
+<header>
+  <h1>The FX Arena Principle</h1>
+</header>
 <h2>Decisions Create Results</h2>
 <p>
 At FX Arena, we believe that tools do not create results—decisions do.
@@ -40,3 +64,23 @@ Our goal is not to replicate every aspect of the real financial markets. Our goa
 <p>
 In FX Arena, outcomes are earned through choices.
 </p>
+<script>
+function toggleMenu(){
+  document.getElementById("sidebar").classList.toggle("show");
+  document.getElementById("overlay").classList.toggle("show");
+}
+</script>
+<script>
+const topNavLinks = document.querySelectorAll(".top-nav a");
+
+const currentPage = window.location.pathname.split("/").pop();
+
+topNavLinks.forEach(link => {
+  if (link.getAttribute("href") === currentPage) {
+    link.classList.add("active");
+  }
+});
+</script>
+</body>
+
+</html>

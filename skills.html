@@ -1,110 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills - FX Arena</title>
+  <link rel="stylesheet" href="skills.css">
+</head>
 
-<nav>
-      <a href="index.html">Home</a>
-        <a href="learn.html">Learn</a>
-          <a href="principle.html">Principle</a>
-            <a href="fairness.html">Fairness</a>
-              <a href="skills.html">Skills</a>
-                <a href="faq.html">FAQ</a>
-                  <a href="contact.html">Contact</a>
-                  </nav>
-<h1>Skills Tested In FX Arena</h1>
+<body>
+<nav class="top-nav">
+  <a href="index.html">Home</a>
+  <a href="learn.html">Learn</a>
+  <a href="principle.html">Principle</a>
+  <a href="fairness.html">Fairness</a>
+  <a href="skills.html">Skills</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contact.html">Contact</a>
+</nav>
 
-<p>
-FX Arena is designed to challenge and develop valuable decision-making skills through competitive tournament participation.
-</p>
+<button class="menu-btn" onclick="toggleMenu()">☰ FX Arena</button>
 
-<p>
-Success is not determined by shortcuts or hidden advantages, but by how participants respond to changing market conditions and uncertainty.
-</p>
+<div id="overlay" class="overlay" onclick="toggleMenu()"></div>
+
+<div id="sidebar" class="sidebar">
+  <a href="index.html">Home</a>
+  <a href="learn.html">Learn</a>
+  <a href="principle.html">Principle</a>
+  <a href="fairness.html">Fairness</a>
+  <a href="skills.html">Skills</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<header>
+  <h1>Skills Tested In FX Arena</h1>
+</header>
+
+<p>FX Arena develops decision-making skills through competitive tournaments.</p>
 
 <h2>Pattern Recognition</h2>
-
-<p>
-Participants learn to observe price behavior, identify developing patterns, and recognize opportunities as they emerge.
-</p>
-
-<p>
-Strong pattern recognition can improve timing and overall decision quality.
-</p>
+<p>Identify price behavior and opportunities.</p>
 
 <h2>Risk Management</h2>
-
-<p>
-Managing risk is one of the most important aspects of performance.
-</p>
-
-<p>
-Participants must balance opportunity and risk while protecting their tournament balance throughout the competition.
-</p>
+<p>Balance risk and protect your balance.</p>
 
 <h2>Discipline</h2>
-
-<p>
-Successful participants remain disciplined and avoid emotional decision-making.
-</p>
-
-<p>
-Discipline helps maintain consistency even during periods of uncertainty and pressure.
-</p>
+<p>Avoid emotional decisions and stay consistent.</p>
 
 <h2>Timing</h2>
-
-<p>
-Knowing when to act can be just as important as knowing what action to take.
-</p>
-
-<p>
-Participants are challenged to make decisions at appropriate moments while adapting to changing conditions.
-</p>
+<p>Make decisions at the right moment.</p>
 
 <h2>Adaptation</h2>
-
-<p>
-Market conditions can change quickly.
-</p>
-
-<p>
-Participants must adapt their thinking and strategies as new information becomes available.
-</p>
+<p>Adjust strategies as conditions change.</p>
 
 <h2>Decision-Making Under Uncertainty</h2>
-
-<p>
-No participant can know the future with complete certainty.
-</p>
-
-<p>
-FX Arena challenges individuals to make thoughtful decisions based on available information while accepting uncertainty as part of the process.
-</p>
+<p>Make choices without knowing the future.</p>
 
 <h2>Independent Thinking</h2>
-
-<p>
-FX Arena encourages participants to develop their own judgment rather than relying entirely on external guidance.
-</p>
-
-<p>
-Independent thinking can strengthen confidence, self-evaluation, and long-term improvement.
-</p>
+<p>Build your own judgment and confidence.</p>
 
 <h2>Continuous Improvement</h2>
-
-<p>
-Every tournament provides an opportunity to learn from successes and mistakes.
-</p>
-
-<p>
-The goal is not simply to compete, but to continuously improve through experience, reflection, and practice.
-</p>
+<p>Learn from every tournament experience.</p>
 
 <h2>The Bigger Picture</h2>
+<p>These skills apply to life, business, and strategic thinking.</p>
 
-<p>
-The skills developed in FX Arena extend beyond competition.
-</p>
+<script>
+function toggleMenu(){
+  document.getElementById("sidebar").classList.toggle("show");
+  document.getElementById("overlay").classList.toggle("show");
+}
+</script>
+<script>
+const topNavLinks = document.querySelectorAll(".top-nav a");
 
-<p>
-Observation, discipline, risk management, adaptability, and decision-making are valuable abilities in many areas of life, business, investing, and strategic thinking.
-</p>
+const currentPage = window.location.pathname.split("/").pop();
+
+topNavLinks.forEach(link => {
+  if (link.getAttribute("href") === currentPage) {
+    link.classList.add("active");
+  }
+});
+</script>
+</body>
+</html>

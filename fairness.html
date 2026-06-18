@@ -1,25 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<nav>
-    <a href="index.html">Home</a>
-      <a href="learn.html">Learn</a>
-        <a href="principle.html">Principle</a>
-          <a href="fairness.html">Fairness</a>
-            <a href="skills.html">Skills</a>
-              <a href="faq.html">FAQ</a>
-                <a href="contact.html">Contact</a>
-                </nav>
-<h1>Fairness & Transparency</h1>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fairness & Transparency</title>
+  <link rel="stylesheet" href="fairness.css">
+</head>
 
-<p>
-Fair competition is one of the core principles of FX Arena.
-</p>
+<body>
+<nav class="top-nav">
+  <a href="index.html">Home</a>
+  <a href="learn.html">Learn</a>
+  <a href="principle.html">Principle</a>
+  <a href="fairness.html">Fairness</a>
+  <a href="skills.html">Skills</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contact.html">Contact</a>
+</nav>
 
-<p>
-Every tournament is designed to provide participants with equal opportunities to compete and demonstrate their abilities.
-</p>
+<button class="menu-btn" onclick="toggleMenu()">☰ FX Arena</button>
+
+<div id="overlay" class="overlay" onclick="toggleMenu()"></div>
+
+<div id="sidebar" class="sidebar">
+  <a href="index.html">Home</a>
+  <a href="learn.html">Learn</a>
+  <a href="principle.html">Principle</a>
+  <a href="fairness.html">Fairness</a>
+  <a href="skills.html">Skills</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<header>
+  <h1>Fairness & Transparency</h1>
+</header>
 
 <h2>Equal Information</h2>
-
 <p>
 All participants receive access to the same market environment during a tournament.
 </p>
@@ -29,7 +47,6 @@ No participant receives special market information, exclusive chart access, or h
 </p>
 
 <h2>Equal Starting Conditions</h2>
-
 <p>
 Tournament participants begin under the same predefined tournament conditions.
 </p>
@@ -39,7 +56,6 @@ This ensures that performance is determined by decisions and execution rather th
 </p>
 
 <h2>No Purchased Advantages</h2>
-
 <p>
 FX Arena is designed to minimize advantages gained through purchased signals, copy trading services, or external assistance.
 </p>
@@ -49,39 +65,56 @@ Success should be earned through observation, strategy, discipline, and decision
 </p>
 
 <h2>Transparent Tournament Rules</h2>
-
 <p>
 Every tournament operates according to clearly defined rules, including:
 </p>
 
 <ul>
   <li>Tournament duration</li>
-    <li>Starting balances</li>
-      <li>Prize structures</li>
-        <li>Ranking methods</li>
-          <li>Participation requirements</li>
-          </ul>
+  <li>Starting balances</li>
+  <li>Prize structures</li>
+  <li>Ranking methods</li>
+  <li>Participation requirements</li>
+</ul>
 
-          <p>
-          Participants are able to understand how competitions are structured before taking part.
-          </p>
+<p>
+Participants are able to understand how competitions are structured before taking part.
+</p>
 
-          <h2>Performance Determines Results</h2>
+<h2>Performance Determines Results</h2>
+<p>
+Tournament rankings are based on participant performance within the tournament environment.
+</p>
 
-          <p>
-          Tournament rankings are based on participant performance within the tournament environment.
-          </p>
+<p>
+Outcomes are determined by decisions made throughout the competition rather than by hidden advantages or preferential treatment.
+</p>
 
-          <p>
-          Outcomes are determined by decisions made throughout the competition rather than by hidden advantages or preferential treatment.
-          </p>
+<h2>A Commitment To Fair Competition</h2>
+<p>
+FX Arena is committed to creating a competitive environment where participants can challenge themselves, compare performance, and improve through experience.
+</p>
 
-          <h2>A Commitment To Fair Competition</h2>
+<p>
+Fairness, transparency, and equal opportunity remain central to that mission.
+</p>
 
-          <p>
-          FX Arena is committed to creating a competitive environment where participants can challenge themselves, compare performance, and improve through experience.
-          </p>
+<script>
+function toggleMenu(){
+  document.getElementById("sidebar").classList.toggle("show");
+  document.getElementById("overlay").classList.toggle("show");
+}
+</script>
+<script>
+const topNavLinks = document.querySelectorAll(".top-nav a");
 
-          <p>
-          Fairness, transparency, and equal opportunity remain central to that mission.
-          </p>
+const currentPage = window.location.pathname.split("/").pop();
+
+topNavLinks.forEach(link => {
+  if (link.getAttribute("href") === currentPage) {
+    link.classList.add("active");
+  }
+});
+</script>
+</body>
+</html>
