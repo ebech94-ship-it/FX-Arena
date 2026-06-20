@@ -7,21 +7,7 @@ body{
   line-height:1.7;
 }
 
-nav{
-  background:#111827;
-  padding:15px;
-  text-align:center;
-  position:sticky;
-  top:0;
-  left: 50px; 
-}
 
-nav a{
-  color:#22c55e;
-  text-decoration:none;
-  margin:0 10px;
-  font-weight:bold;
-}
 
 nav a:hover{
   color:white;
@@ -149,7 +135,32 @@ nav a.active{
   padding:6px 10px;
   border-radius:6px;
 }
+
 .top-nav {
     margin-top: 5px;
     left: 50px; /* hide desktop nav on phone */
   }
+  nav {
+  background: #111827;
+  padding: 15px;
+  position: sticky;
+  top: 0;
+
+  display: flex;          /* puts items in a row */
+  gap: 15px;              /* spacing between links */
+  overflow-x: auto;      /* enables horizontal scrolling */
+  white-space: nowrap;   /* prevents wrapping */
+}
+
+/* links styling */
+nav a {
+  color: #22c55e;
+  text-decoration: none;
+  font-weight: bold;
+  flex-shrink: 0;        /* prevents shrinking */
+}
+
+/* optional: hide scrollbar (clean UI) */
+nav::-webkit-scrollbar {
+  display: none;
+}
