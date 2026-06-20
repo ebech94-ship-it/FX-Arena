@@ -138,7 +138,7 @@ nav a.active{
 
 .top-nav {
     margin-top: 5px;
-    left: 50px; /* hide desktop nav on phone */
+    left: 500px; /* hide desktop nav on phone */
   }
   nav {
   background: #111827;
