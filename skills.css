@@ -13,6 +13,7 @@ nav{
   text-align:center;
   position:sticky;
   top:0;
+  left: 50px; 
 }
 
 nav a{
@@ -85,8 +86,8 @@ body{
 .menu-btn{
   position:fixed;
   top:0;
-  left:5;
-  width:180px;
+  left: -5px;;
+  width:90px;
   height:60px;
   background:#22c55e;
   color:white;
