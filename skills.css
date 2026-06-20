@@ -149,5 +149,6 @@ nav a.active{
   border-radius:6px;
 }
 .top-nav {
-    margin-top: 20px; /* hide desktop nav on phone */
+    margin-top: 5px;
+    left: 50px; /* hide desktop nav on phone */
   }
