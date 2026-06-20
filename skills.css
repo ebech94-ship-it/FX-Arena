@@ -145,7 +145,7 @@ nav a.active{
   padding: 15px;
   position: sticky;
   top: 0;
-
+left: 500px;
   display: flex;          /* puts items in a row */
   gap: 15px;              /* spacing between links */
   overflow-x: auto;      /* enables horizontal scrolling */
