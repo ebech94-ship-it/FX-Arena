@@ -73,8 +73,8 @@ body{
   position:fixed;
   top:0;
   left: -5px;;
-  width:90px;
-  height:60px;
+  width:300px;
+  height:40px;
   background:#22c55e;
   color:white;
   border:none;
@@ -144,7 +144,7 @@ nav a.active{
   background: #111827;
   padding: 15px;
   position: sticky;
-  top: 0;
+  top: 30;
 
   display: flex;          /* puts items in a row */
   gap: 15px;              /* spacing between links */
