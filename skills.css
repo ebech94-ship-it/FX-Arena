@@ -71,7 +71,7 @@ body{
 /* TOP MENU BUTTON */
 .menu-btn{
   position:fixed;
-  top:0;
+  top: 60px;
   left: -5px;;
   width:90px;
   height:60px;
@@ -138,14 +138,14 @@ nav a.active{
 
 .top-nav {
     margin-top: 5px;
-    left: 500px; /* hide desktop nav on phone */
+    left: 50px; /* hide desktop nav on phone */
   }
   nav {
   background: #111827;
   padding: 15px;
   position: sticky;
   top: 0;
-left: 500px;
+
   display: flex;          /* puts items in a row */
   gap: 15px;              /* spacing between links */
   overflow-x: auto;      /* enables horizontal scrolling */
