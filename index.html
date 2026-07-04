@@ -1,489 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FX Arena</title>
 
-  <!-- Google Verification -->
-  <meta name="google-site-verification" content="uqhI30KPNM3zgHmyQ7b96HQplJfJeYeH8ojl2Rt-l1U" />
-
-  <title>Forex Trading Tournaments | FX Arena</title>
-
-  <!-- SEO -->
-  <meta name="description" content="Forex Tournaments Arena is a global trading competition app where traders compete in live and demo Forex tournaments. Test strategies, climb leaderboards, and win rewards.">
-  <meta name="keywords" content="forex trading tournament, trading competition app, Forex Tournaments Arena, FX Arena, trading leaderboard, forex contest platform">
-  <meta name="author" content="GoodSpeed Technologies">
-  <meta name="application-name" content="Forex Tournaments Arena">
-
-  <!-- Social Link Preview -->
-  <meta property="og:title" content="Forex Tournaments Arena">
-  <meta property="og:description" content="Join global Forex Trading Tournaments. Compete, test strategies, climb the leaderboard, and win rewards.">
-  <meta property="og:image" content="https://forexarena.vercel.app/images/icon.png">
-  <meta property="og:url" content="https://forexarena.vercel.app">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter Preview -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Forex Tournaments Arena">
-  <meta name="twitter:description" content="Download Forex Tournaments Arena app and compete in global trading tournaments.">
-  <meta name="twitter:image" content="https://forexarena.vercel.app/images/icon.png">
-
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MobileApplication",
-    "name": "Forex Tournaments Arena",
-    "operatingSystem": "Android",
-    "applicationCategory": "FinanceApplication",
-    "description": "FX Arena is a global Forex trading tournament platform where traders compete, test strategies, climb leaderboards, and improve discipline in competitive trading arenas.",
-    "url": "https://forexarena.vercel.app",
-    "image": "https://forexarena.vercel.app/images/icon.png",
-    "author": {
-      "@type": "Organization",
-      "name": "GoodSpeed Technologies"
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    }
-  }
-  </script>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <!-- Top App Icon -->
- <nav class="top-nav">
-  <a href="index.html">Home</a>
-  <a href="learn.html">Learn</a>
-  <a href="principle.html">Principle</a>
-  <a href="fairness.html">Fairness</a>
-  <a href="skills.html">Skills</a>
-  <a href="faq.html">FAQ</a>
-  <a href="contact.html">Contact</a>
-</nav>
+<!-- ☰ MENU BUTTON (ADDED) -->
+<button class="menu-icon" onclick="toggleMenu()">☰</button>
 
-<!-- MENU BUTTON -->
-<button class="menu-btn" onclick="toggleMenu()">☰ FX Arena</button>
-
-<!-- OVERLAY -->
+<!-- OVERLAY (ADDED) -->
 <div id="overlay" class="overlay" onclick="toggleMenu()"></div>
 
-<!-- SIDEBAR -->
+<!-- SIDEBAR (ADDED) -->
 <div id="sidebar" class="sidebar">
-  <a href="index.html">Home</a>
-  <a href="learn.html">Learn</a>
-  <a href="principle.html">Principle</a>
-  <a href="fairness.html">Fairness</a>
-  <a href="skills.html">Skills</a>
-  <a href="faq.html">FAQ</a>
-  <a href="contact.html">Contact</a>
-</div>
 
-<!-- Getting Started -->
-<section class="features">
-  <div class="accordion">
-    <button class="accordion-btn">Getting Started</button>
-    <div class="accordion-content">
-      <p>Click Download, install the app, accept terms & conditions by ticking the box, sign up, and start practicing or participating in live tournaments. Experience trading like a pro!</p>
-    </div>
-    <h1>FOREX TOURNAMENTS ARENA<br>APPLICATION</h1>
-  </div>
-</section>
-<!-- NEW: App Screenshots Preview -->
-<section class="app-screenshots">
-  <h2>Experience FX Arena Step by Step</h2>
-  <div class="s-container">
-    <img src="images/screenshot-1.png" alt="Splash Screen" class="app-screenshot">
-    <img src="images/screenshot-2.png" alt="Sign Up Page" class="app-screenshot">
-    <img src="images/screenshot-3.png" alt="The Arena" class="app-screenshot">
-    <img src="images/screenshot-4.png" alt="Live Tournament Screen" class="app-screenshot">
-    <img src="images/screenshot-5.png" alt="Rules & Leaderboard Tokens" class="app-screenshot">
-  </div>
-</section>
-<!-- How It Works -->
-<section class="features">
-  <h2>How FX Arena Works</h2>
-  <div class="accordion">
-    <button class="accordion-btn">Tournament Overview</button>
-    <div class="accordion-content">
-      <p>Join live Forex tournaments with players worldwide. Practice in demo mode or compete in tournaments.
-         Fun, strategic, and rewarding!</p>
-      <img src="images/screenshot.png" alt="App Screenshot" class="screenshot">
-    </div>
-  </div>
-</section>
+  <a href="index.html">🏠 Home</a>
+  <a href="learn.html">📘 Learn</a>
+  <a href="principle.html">⚙️ Principle</a>
+  <a href="fairness.html">⚖️ Fairness</a>
+  <a href="skills.html">📊 Skills</a>
+  <a href="faq.html">❓ FAQ</a>
+  <a href="contact.html">📩 Contact</a>
 
+  <hr style="border:1px solid #1f2937">
 
-<!-- About -->
-<section class="about">
-  <div class="about-container">
-    <h2>About FX Arena</h2>
-    <p class="mission">
-      FX Arena is a competitive Forex tournament platform designed to test
-      strategy, discipline, and market psychology in a simulated trading environment.
-    </p>
-
-    <div class="info-grid">
-
-      <div class="info-card">
-        <h3>Demo Tournaments</h3>
-        <p>
-          Practice your strategies in risk-free demo competitions.
-          Learn market timing, improve discipline, and build confidence.
-        </p>
-      </div>
-
-      <div class="info-card">
-        <h3>Live Tournaments</h3>
-        <p>
-          Compete against real players in structured trading challenges.
-          Rankings are determined by performance and consistency.
-        </p>
-      </div>
-
-      <div class="info-card">
-        <h3>Registration & Entry</h3>
-        <p>
-          Registration on FX Arena is completely free.
-          Demo tournaments are free to join.
-          Selected premium live tournaments may require an entry fee
-          based on the prize pool structure.
-        </p>
-      </div>
-
-      <div class="info-card">
-        <h3>Prize Distribution</h3>
-        <p>
-          Top-ranked participants receive tournament rewards
-          based on predefined rules and leaderboard standings.
-          Participants with the highest final tournament account balance
-          qualify for prize pool distribution.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- NEW: Participation Flow -->
-<section class="about">
-  <div class="about-container">
-    <h2>How To Participate</h2>
-    <div class="info-grid">
-
-      <div class="info-card">
-        <h3>1. Register</h3>
-        <p>
-          Download the app, create your account, and complete your profile information.
-        </p>
-      </div>
-
-      <div class="info-card">
-        <h3>2. Fund Wallet</h3>
-        <p>
-          Deposit into your Real Account using available payment methods.
-          Premium tournament entry fees are deducted from this balance.
-        </p>
-      </div>
-
-      <div class="info-card">
-        <h3>3. Join Tournament</h3>
-        <p>
-          Select an available tournament and register.
-          A dedicated tournament balance is assigned to you
-          with equal starting conditions for all participants.
-        </p>
-      </div>
-
-      <div class="info-card">
-        <h3>4. Climb Rankings</h3>
-        <p>
-          Trade strategically to grow your tournament balance.
-          Higher balances improve your position on the leaderboard.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- NEW: Live Stats -->
-<section class="about">
-  <div class="about-container">
-    <h2>Platform Activity</h2>
-    <div class="info-grid">
-      <div class="info-card">
-        <h3>Active Players</h3>
-        <p>loading...</p>
-      </div>
-      <div class="info-card">
-        <h3>Total Tournaments Played</h3>
-        <p>loading...</p>
-      </div>
-      <div class="info-card">
-        <h3>Prize Pools Distributed</h3>
-        <p>loading...</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Psychology -->
-<section class="psychology">
-  <div class="psychology-container">
-   <h2 class="highlight-heading">Understanding Market Psychology</h2>
-    <p class="highlight">Market Psychology Matters</p>
-    <p>The market is driven by human emotion — fear, greed, hope, and uncertainty.</p>
-    <p>Traders buy when they anticipate price growth(rise) and sell when they expect decline(fall).</p>
-    <p>In FX Arena tournaments, strategy, discipline, and timing determine success.</p>
-  </div>
-</section>
-
-<!-- NEW: Leaderboard Preview -->
-<section class="about">
-  <div class="about-container">
-    <h2>Top Tournament Leaders</h2>
-    <div class="info-grid">
-      <div class="info-card">
-        <h3>1. Trader Alpha</h3>
-        <p>Return: +32%</p>
-      </div>
-      <div class="info-card">
-        <h3>2. Trader Beta</h3>
-        <p>Return: +28%</p>
-      </div>
-      <div class="info-card">
-        <h3>3. Trader Gamma</h3>
-        <p>Return: +25%</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- NEW: Testimonials -->
-<section class="about">
-  <div class="about-container">
-    <h2>User Feedback</h2>
-    <div class="info-grid">
-      <div class="info-card">
-        <p>"FX Arena helped me practice trading without real risk. Great competitive environment!"</p>
-        <strong>- Early User</strong>
-      </div>
-      <div class="info-card">
-        <p>"The leaderboard competition keeps me disciplined and focused."</p>
-        <strong>- Demo Participant</strong>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- NEW: FAQ -->
-<section class="features">
-  <h2>Frequently Asked Questions</h2>
-  <div class="accordion">
-    <button class="accordion-btn">Is this real-money trading?</button>
-    <div class="accordion-content">
-      <p>No. FX Arena provides simulated trading competitions only.</p>
-    </div>
-
-    <button class="accordion-btn">How are winners determined?</button>
-    <div class="accordion-content">
-      <p>Rankings are based on trading performance and consistency during tournaments.</p>
-    </div>
-
-    <button class="accordion-btn">How do I join a tournament?</button>
-    <div class="accordion-content">
-      <p>Register, fund your wallet, and select an available tournament.</p>
-    </div>
-  </div>
-</section>
-
-<!-- The company -->
-<section class="godspeed-section">
-
-<div class="godspeed-container">
-
-<h2 class="highlight-heading"> GodSpeed(GS) Technologies.</h2>
-
-<p class="godspeed-intro">
-Forex Tournaments Arena is proudly developed by <strong>GodSpeed(GS) Technologies</strong>, a company focused on
- building competitive ranking environments where skill, strategy, and discipline come together.
-</p>
-
-<div class="godspeed-grid">
-
-<div class="godspeed-card">
-<h3>Our Vision</h3>
-<p>
-To build an exciting competitive arena where players can test their strategy, sharpen their skills, 
-and climb the ranks in skill-based tournaments—all in a safe, simulated trading environment.
-</p>
-</div>
-
-<div class="godspeed-card">
-<h3>Fair Competition</h3>
-<p>
-GodSpeed focuses on transparent systems, clear tournament structures, and balanced competition so every player has a fair chance.
-</p>
-</div>
-
-<div class="godspeed-card">
-<h3>Future Focused</h3>
-<p>
-We are continuously improving FX Arena to bring new features, better performance, and a stronger competitive community.
-</p>
-</div>
+  <a href="/app-release.apk" download style="color:#22c55e;">
+    ⬇ Download App
+  </a>
 
 </div>
 
-</div>
-</section>
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="logo">⚡ FX Arena</div>
 
-<!-- NEW: Developer / Founder Highlight -->
-<section class="founder-section">
-  <div class="founder-container">
-    <img src="images/mypic.png" alt="Founder Image" class="founder-pic">
-    <div class="founder-text">
-      <h2>Guided by Vision & Passion</h2>
-      <p>
-        Behind FX Arena is a commitment to creating a fair, engaging, and professional trading environment. 
-        Every feature is crafted with care, ensuring players experience strategy, learning, discipline, and excitement in every activity on the platform.
-      </p>
-      <p class="founder-name">— Ekoko Bechem I.</p>
-    </div>
-  </div>
-</section>
-<!-- Download Section -->
+  <a class="download-top" href="/app-release.apk" download>
+    ⬇ Download
+  </a>
+</div>
+
+<!-- HERO -->
 <section class="hero">
-  <!-- Referral message -->
-  <div id="ref-message" style="text-align:center; font-weight:bold; margin-bottom:10px;"></div>
+  <h1>Trade. Compete. Win.</h1>
+  <p>Join forex trading tournaments and compete with real players worldwide.</p>
 
-  <!-- Heading -->
-  <h1>FOREX TOURNAMENTS ARENA DOWNLOAD</h1>
-
-  <!-- Description -->
-  <p>Compete Globally. Become a Champion. Win Real Cash. Rule the Market, lead the competitions.</p>
-
-  <!-- Download button -->
-<a id="download-btn" href="/app-release.apk" download="FX-Arena.apk" class="btn" onclick="downloadStarted()">
-Download Android App
-</a>
-
- <!-- APK size info -->
-  <p class="apk-size">File size: 88.9 MB</p>
-  <!-- Referral script -->
-  <!-- How To Install -->
-<div class="install-guide">
-
-<h3>How to Install FX Arena</h3>
-
-<div class="install-steps">
-
-<div class="step">
-<strong>1. Tap Download</strong>
-<p>Press the "Download Android App" button above.</p>
-</div>
-
-<div class="step">
-<strong>2. Check Downloads</strong>
-<p>If nothing appears, open your phone notifications or Downloads folder.</p>
-</div>
-
-<div class="step">
-<strong>3. Open APK File</strong>
-<p>Tap the file named <strong>FX-Arena.apk</strong>.</p>
-</div>
-
-<div class="step">
-<strong>4. Allow Install</strong>
-<p>If prompted, allow installation from your browser.</p>
-</div>
-
-<div class="step">
-<strong>5. Launch App</strong>
-<p>Tap Install and start competing in FX Arena.</p>
-</div>
-
-</div>
-</div>
-  <script>
- 
-function downloadStarted(){
-setTimeout(()=>{
-alert("Download started. Check your notification bar or Downloads folder.");
-},500);
-}
-  </script>
+  <a class="download-main" href="/app-release.apk" download>
+    ⬇ Download APK
+  </a>
 </section>
 
-<section class="risk-warning">
-  <p>
-    ⚠️ FX Arena provides simulated trading competitions.
-    No real-money trading is executed nor broker services provided. Trade responsibly.
-  </p>
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="card">🏆 Real Competition</div>
+  <div class="card">📊 Skill-Based Ranking</div>
+  <div class="card">⚡ Free Demo Mode</div>
 </section>
 
-<footer>
-  <div class="footer-links">
-    <a href="terms.html">Terms & Conditions</a> |
-    <a href="privacy.html">Privacy Policy</a>|
-    <a href="prize-distribution.html">Prize Distribution</a>
+<!-- SCREENSHOTS -->
+<section class="screens">
+  <img src="images/screenshot-1.png">
+  <img src="images/screenshot-2.png">
+  <img src="images/screenshot-3.png">
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta">
+  <h2>Ready to start?</h2>
+  <a class="download-main glow" href="/app-release.apk" download>
+    ⬇ Install FX Arena Now
+  </a>
+</section>
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+
+  <button onclick="openTab('home')">🏠 HOME</button>
+  <button onclick="openTab('rank')">📊 RANK</button>
+  <button onclick="openTab('live')">🔴 LIVE</button>
+  <button onclick="openTab('rewards')">👑 REWARDS</button>
+
+</div>
+<!-- SLIDE PANEL -->
+<div id="panel" class="panel">
+
+  <div class="panel-header">
+    <span id="panel-title">Menu</span>
+    <button onclick="closePanel()">✖</button>
   </div>
-  <h3>Contact Us</h3>
-  <p><span>📧</span> Email: <a href="mailto:ebech94@gmail.com">ebech94@gmail.com</a></p>
-  <p><span>📱</span> WhatsApp: <a href="https://wa.me/237682783789" target="_blank">+237-682-783-789</a></p>
-  <p>&copy; 2026 FX Arena. All rights reserved.</p>
-</footer>
 
-<script>
-// Accordion
-const accBtns = document.querySelectorAll(".accordion-btn");
-accBtns.forEach(btn => {
-  btn.addEventListener("click", () => {
-    btn.classList.toggle("active");
-    const content = btn.nextElementSibling;
-    content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
-  });
-});
+  <div id="panel-content">
 
-// Referral tracking
-(function() {
-  const params = new URLSearchParams(window.location.search);
-  const ref = params.get('ref');
-  if (ref) localStorage.setItem('inviteRef', ref);
+<div id="home-tab" class="tab-page"></div>
 
-  const storedRef = localStorage.getItem('inviteRef');
-  if (storedRef) {
-    // Display message above download button
-    const refDiv = document.getElementById('ref-message');
-    if (refDiv) refDiv.textContent = `🎉 You were invited by ${storedRef}! Start your journey now.`;
+<div id="rank-tab" class="tab-page" style="display:none;">
+  <div id="leaderboard-list"></div>
+</div>
 
-    // Update download button
-    const downloadBtn = document.getElementById('download-btn');
-    if (downloadBtn) downloadBtn.href = `app-release.apk?ref=${storedRef}`;
-  }
-})();
-</script>
+<div id="live-tab" class="tab-page" style="display:none;">
+  <div id="live-list"></div>
+</div>
+
+<div id="rewards-tab" class="tab-page" style="display:none;">
+  <div id="rewards-list"></div>
+</div>
+
+</div>
+
+</div>
+<!-- SCRIPT (ADDED) -->
 <script>
 function toggleMenu(){
   document.getElementById("sidebar").classList.toggle("show");
   document.getElementById("overlay").classList.toggle("show");
 }
-</script>
-<script>
-const links = document.querySelectorAll(".top-nav a");
-const currentPage = window.location.pathname.split("/").pop();
 
-links.forEach(link => {
-  if (link.getAttribute("href") === currentPage) {
-    link.classList.add("active");
+function closePanel(){
+  document.getElementById("panel").classList.remove("show");
+}
+
+function openTab(tab){
+
+  document.getElementById("panel").classList.add("show");
+
+  document.querySelectorAll(".tab-page").forEach(page=>{
+    page.style.display="none";
+  });
+
+  if(tab==="home"){
+    document.getElementById("panel-title").innerText="🏠 Home";
+    document.getElementById("home-tab").style.display="block";
   }
-});
-</script>
 
+  if(tab==="rank"){
+    document.getElementById("panel-title").innerText="📊 Leaderboard";
+    document.getElementById("rank-tab").style.display="block";
+  }
+
+  if(tab==="live"){
+    document.getElementById("panel-title").innerText="🔴 Live Tournaments";
+    document.getElementById("live-tab").style.display="block";
+  }
+
+  if(tab==="rewards"){
+    document.getElementById("panel-title").innerText="👑 Rewards";
+    document.getElementById("rewards-tab").style.display="block";
+  }
+
+}
+</script>
+<script type="module" src="app.js"></script>
 </body>
 </html>
