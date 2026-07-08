@@ -47,19 +47,30 @@ function formatTime(ms) {
 /* =========================
    1. FIRESTORE LISTENER (DATA ONLY)
 ========================= */
-onSnapshot(tournamentsRef, (snap) => {
-  tournamentsCache = [];
+const tournament = {
+    id: docSnap.id,
+    ...docSnap.data(),
+    participantsCount: 0,
+    rebuyCount: 0,
+};
 
-  snap.forEach((docSnap) => {
-    tournamentsCache.push({
-      id: docSnap.id,
-      ...docSnap.data()
-    });
-  });
+tournamentsCache.push(tournament);
 
-  renderHome(); // 🔥 THIS WAS MISSING
-});
+// 🔥 LIVE participant counting
+onSnapshot(
+    collection(db, "tournaments", docSnap.id, "participants"),
+    (pSnap) => {
 
+        tournament.participantsCount = pSnap.size;
+
+        tournament.rebuyCount = pSnap.docs.reduce(
+            (sum, d) => sum + (d.data().rebuyCount ?? 0),
+            0
+        );
+
+        renderHome();
+    }
+);
 /* =========================
    2. REAL LIVE UI RENDER LOOP (EVERY 1s)
 ========================= */
@@ -126,7 +137,11 @@ const isLive = now >= start && now <= end;
             font-weight:800;
             color:#22c55e;
           ">
-            💰 Prize Pool: ${t.prizePool ?? 0}$
+            💰 Prize Pool: ${
+    t.prizeModel === "dynamic"
+        ? Number(t.collectedFunds ?? 0).toFixed(2)
+        : Number(t.prizePool ?? 0).toFixed(2)
+}$ 
           </div>
 
           <!-- INFO -->
@@ -291,7 +306,11 @@ onSnapshot(tournamentsRef, (snap) => {
               </span>
 
               <span style="color:#22c55e;font-weight:600;">
-                ${p.amount}
+               ${
+    t.prizeModel === "dynamic"
+        ? `${p.percentage ?? 0}%`
+        : `$${p.amount ?? 0}`
+}
               </span>
             </div>
           `).join("")}
@@ -364,7 +383,11 @@ const isSelected = selectedTournament?.id === t.id;
 </span>
         
 <div style="margin-top:8px;color:#facc15;font-weight:900;font-size:18px;">
-  💰 $${t.prizePool ?? 0}
+  💰 ${
+    t.prizeModel === "dynamic"
+        ? `$${Number(t.collectedFunds ?? 0).toFixed(2)}`
+        : `$${Number(t.prizePool ?? 0).toFixed(2)}`
+}
 </div>
 
 <div style="margin-top:6px;color:#94a3b8;font-size:13px;">
