@@ -123,7 +123,7 @@ const isLive = now >= start && now <= end;
   : isUpcoming
   ? `Starts in: ${formatTime(start - now)}`
   : "Finished";
-  
+
     if (isLive) {
       liveHTML += `
         <div style="
@@ -162,7 +162,7 @@ const isLive = now >= start && now <= end;
 
           <!-- INFO -->
           <div style="margin-top:10px;color:#94a3b8;font-size:13px;">
-            <p style="margin:4px 0;">👥 Players: ${t.participantsCount ?? 0}</p>
+            <p style="margin:4px 0;">👥 Participants: ${t.participantsCount ?? 0}</p>
             <p style="margin:4px 0;">♻️ Rebuys: ${t.rebuyCount ?? 0}</p>
 
             <p style="margin:4px 0;color:#facc15;font-weight:700;">
@@ -230,7 +230,7 @@ snap.forEach((tournamentDoc) => {
         const performance = balance - starting - rebuy;
 
         list.push({
-          name: d.username || "Unknown",
+          name: d.username || "Participants",
           performance
         });
       });
@@ -243,17 +243,26 @@ snap.forEach((tournamentDoc) => {
   <div style="background:#0f172a; margin:10px 0; padding:14px; border-radius:12px; border:1px solid #1f2937;">
     <h3 style="color:#facc15;margin:0;">🏆 ${t.name}</h3>
 
-    <div style="display:flex;justify-content:space-between;margin-top:10px;padding:8px;background:#111827;border-radius:8px;color:#94a3b8;font-size:12px;">
-      <span>Rank</span><span>User</span><span>Performance</span>
-    </div>
+    <div style="
+display:flex;
+padding:8px;
+background:#111827;
+border-radius:8px;
+color:#94a3b8;
+font-size:12px;
+">
+  <span style="width:50px;">Rank</span>
+  <span style="flex:1;">Participant</span>
+  <span style="width:120px;text-align:right;">Performance</span>
+</div>
 
     <div style="max-height:320px;overflow-y:auto;padding-right:6px;">
       ${list.slice(0,10).map((u,i)=>`
         <div style="display:flex;justify-content:space-between;padding:10px;border-bottom:1px solid #1f2937;">
-          <span>#${i+1}</span>
-          <span style="flex:1;margin-left:10px;">${u.name}</span>
-          <span style="color:#22c55e;font-weight:700;">${u.performance.toFixed(2)}</span>
-        </div>
+  <span>#${i+1}</span>
+  <span style="flex:1;margin-left:10px;">${u.name}</span>
+  <span style="color:#22c55e;font-weight:700;">${u.performance.toFixed(2)}</span>
+</div>
       `).join("")}
     </div>
   </div>
