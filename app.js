@@ -47,30 +47,46 @@ function formatTime(ms) {
 /* =========================
    1. FIRESTORE LISTENER (DATA ONLY)
 ========================= */
-const tournament = {
-    id: docSnap.id,
-    ...docSnap.data(),
-    participantsCount: 0,
-    rebuyCount: 0,
-};
+/* =========================
+   1. FIRESTORE LISTENER (DATA ONLY)
+========================= */
 
-tournamentsCache.push(tournament);
+onSnapshot(tournamentsRef, (snap) => {
 
-// 🔥 LIVE participant counting
-onSnapshot(
-    collection(db, "tournaments", docSnap.id, "participants"),
-    (pSnap) => {
+  tournamentsCache = [];
+
+  snap.forEach((docSnap) => {
+
+    const tournament = {
+      id: docSnap.id,
+      ...docSnap.data(),
+      participantsCount: 0,
+      rebuyCount: 0,
+    };
+
+    tournamentsCache.push(tournament);
+
+    // 🔥 Live participant count
+    onSnapshot(
+      collection(db, "tournaments", docSnap.id, "participants"),
+      (pSnap) => {
 
         tournament.participantsCount = pSnap.size;
 
         tournament.rebuyCount = pSnap.docs.reduce(
-            (sum, d) => sum + (d.data().rebuyCount ?? 0),
-            0
+          (sum, d) => sum + (d.data().rebuyCount ?? 0),
+          0
         );
 
         renderHome();
-    }
-);
+      }
+    );
+
+  });
+
+  renderHome();
+
+});
 /* =========================
    2. REAL LIVE UI RENDER LOOP (EVERY 1s)
 ========================= */
@@ -102,12 +118,12 @@ const isLive = now >= start && now <= end;
       statusColor = "#6b7280";
     }
 
-    const countdown = isLive
-      ? `Ends in: ${formatTime(t.endTime - now)}`
-      : isUpcoming
-      ? `Starts in: ${formatTime(t.startTime - now)}`
-      : "Finished";
-
+   const countdown = isLive
+  ? `Ends in: ${formatTime(end - now)}`
+  : isUpcoming
+  ? `Starts in: ${formatTime(start - now)}`
+  : "Finished";
+  
     if (isLive) {
       liveHTML += `
         <div style="
