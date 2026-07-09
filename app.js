@@ -243,25 +243,61 @@ snap.forEach((tournamentDoc) => {
   <div style="background:#0f172a; margin:10px 0; padding:14px; border-radius:12px; border:1px solid #1f2937;">
     <h3 style="color:#facc15;margin:0;">🏆 ${t.name}</h3>
 
-    <div style="
+  <div style="
 display:flex;
 padding:8px;
 background:#111827;
 border-radius:8px;
 color:#94a3b8;
 font-size:12px;
+font-weight:700;
 ">
-  <span style="width:50px;">Rank</span>
-  <span style="flex:1;">Participant</span>
-  <span style="width:120px;text-align:right;">Performance</span>
+  <span style="width:60px;text-align:center;">Rank</span>
+
+  <span style="flex:1;text-align:center;">
+    Participant
+  </span>
+
+  <span style="width:120px;text-align:center;">
+    Performance
+  </span>
 </div>
 
     <div style="max-height:320px;overflow-y:auto;padding-right:6px;">
       ${list.slice(0,10).map((u,i)=>`
-        <div style="display:flex;justify-content:space-between;padding:10px;border-bottom:1px solid #1f2937;">
-  <span>#${i+1}</span>
-  <span style="flex:1;margin-left:10px;">${u.name}</span>
-  <span style="color:#22c55e;font-weight:700;">${u.performance.toFixed(2)}</span>
+       <div style="
+display:flex;
+align-items:center;
+padding:10px;
+border-bottom:1px solid #1f2937;
+">
+
+  <span style="
+    width:60px;
+    text-align:center;
+  ">
+    #${i+1}
+  </span>
+
+  <span style="
+    flex:1;
+    text-align:center;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  ">
+    ${u.name}
+  </span>
+
+  <span style="
+    width:120px;
+    text-align:center;
+    color:#22c55e;
+    font-weight:700;
+  ">
+    ${u.performance.toFixed(2)}
+  </span>
+
 </div>
       `).join("")}
     </div>
