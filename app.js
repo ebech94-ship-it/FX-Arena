@@ -227,8 +227,8 @@ snap.forEach((tournamentDoc) => {
         const balance = Number(d.balance ?? 0);
         const rebuy = Number(d.rebuyInjectedTotal ?? 0);
 
-        const performance = balance - starting - rebuy;
-
+       const performance =
+  Number(d.performance?.pnl ?? 0);
         list.push({
           name: d.username || "Participants",
           performance
