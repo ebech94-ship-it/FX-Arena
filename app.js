@@ -292,10 +292,10 @@ border-bottom:1px solid #1f2937;
   <span style="
     width:120px;
     text-align:center;
-    color:#22c55e;
+    color:${u.performance >= 0 ? "#22c55e" : "#ef4444"};
     font-weight:700;
   ">
-    ${u.performance.toFixed(2)}
+   ${u.performance >= 0 ? "+" : ""}${u.performance.toFixed(2)}T
   </span>
 
 </div>
