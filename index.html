@@ -3,9 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FX Arena</title>
+
+<title>FX Arena - Trade. Compete. Win.</title>
 
 <link rel="stylesheet" href="style.css">
+
+<!-- WhatsApp / Facebook Preview -->
+<meta property="og:title" content="FX Arena - Trade. Compete. Win.">
+
+<meta property="og:description" content="Join forex tournaments and compete with traders worldwide.">
+
+<meta property="og:image" content="https://www.republic.beauty/images/icon.png">
+
+<meta property="og:url" content="https://www.republic.beauty">
+
+<meta property="og:type" content="website">
+
+<!-- Twitter / other previews -->
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="https://www.republic.beauty/images/icon.png">
+
 </head>
 
 <body>
@@ -29,9 +47,9 @@
 
   <hr style="border:1px solid #1f2937">
 
-  <a href="/app-release.apk" download style="color:#22c55e;">
-    ⬇ Download App
-  </a>
+  <a href="javascript:void(0)" onclick="downloadApp(this)" style="color:#22c55e;">
+  ⬇ Download App
+</a>
 
 </div>
 
@@ -39,20 +57,48 @@
 <div class="topbar">
   <div class="logo">⚡ FX Arena</div>
 
-  <a class="download-top" href="/app-release.apk" download>
-    ⬇ Download
-  </a>
+  <a class="download-top" href="javascript:void(0)" onclick="downloadApp(this)">
+  ⬇ Download
+</a>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <h1>Trade. Compete. Win.</h1>
-  <p>Join forex trading tournaments and compete with Traders worldwide.</p>
+  <p>Join forex trading tournaments and compete 
+    with Traders worldwide.</p>
 
- <a class="download-main" href="javascript:void(0)" onclick="downloadApp()">
+ <a class="download-main" href="javascript:void(0)" onclick="downloadApp(this)">
   ⬇ Download APK
 </a>
 </section>
+
+
+<!-- STATS -->
+<section class="stats">
+
+  <div class="stat-box">
+    <h2 id="download-count">0</h2>
+    <p>Downloads</p>
+  </div>
+
+  <div class="stat-box">
+     <h2 id="trader-count">0</h2>
+    <p>Traders</p>
+  </div>
+
+  <div class="stat-box">
+    <h2>37 🔴</h2>
+    <p>Online</p>
+  </div>
+
+  <div class="stat-box">
+    <h2 id="live-cups">0</h2>
+    <p>Live Cups</p>
+  </div>
+
+</section>
+
 
 <!-- BENEFITS -->
 <section class="benefits">
@@ -71,9 +117,9 @@
 <!-- FINAL CTA -->
 <section class="cta">
   <h2>Ready to start?</h2>
-  <a class="download-main glow" href="/app-release.apk" download>
-    ⬇ Install FX Arena Now
-  </a>
+  <a class="download-main glow" href="javascript:void(0)" onclick="downloadApp(this)">
+  ⬇ Install FX Arena Now
+</a>
 </section>
 <!-- BOTTOM NAV -->
 <div class="bottom-nav">
@@ -159,15 +205,51 @@ if (ref) {
   localStorage.setItem("inviteRef", ref);
 }
 
-// ✅ DOWNLOAD FUNCTION (FIXED POSITION)
-function downloadApp() {
-  const ref = localStorage.getItem("inviteRef");
+async function downloadApp(button) {
+  if(button.dataset.loading === "true") return;
 
-  const url = ref
-    ? `/app-release.apk?ref=${ref}`
-    : `/app-release.apk`;
+  button.dataset.loading = "true";
+  const oldText = button.innerHTML;
 
-  window.location.href = url;
+  button.innerHTML = "⏳ Preparing...";
+  button.style.pointerEvents = "none";
+
+  setTimeout(async ()=>{
+    const confirmDownload = confirm(
+      "FX Arena APK is ready.\n\nPress OK to start download."
+    );
+
+    if(confirmDownload){
+      const statsRef = doc(db,"websiteStats","downloads");
+
+      await setDoc(
+        statsRef,
+        {
+          count: increment(1)
+        },
+        {
+          merge:true
+        }
+      );
+
+
+      const ref = localStorage.getItem("inviteRef");
+
+      const url = ref
+        ? `/app-release.apk?ref=${ref}`
+        : `/app-release.apk`;
+
+
+      window.location.href = url;
+
+    }
+
+    button.innerHTML = oldText;
+    button.style.pointerEvents = "auto";
+    button.dataset.loading = "false";
+
+  },800);
+
 }
 </script>
 

@@ -2,7 +2,14 @@ import { db } from "./firebase.js";
 
 import {
   collection,
-  onSnapshot,query
+  onSnapshot,
+  query,
+  getCountFromServer,
+  doc,
+  getDoc,
+  setDoc,
+  increment,
+  onSnapshot
 } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
 /* =========================
@@ -17,6 +24,8 @@ const rewardsList = document.getElementById("rewards-list");
 ========================= */
 console.log("🔥 FX Arena Live Engine Started");
 
+updateTraderCount();
+updateDownloadCount();
 let selectedTournament = null;
 
 
@@ -85,7 +94,7 @@ onSnapshot(tournamentsRef, (snap) => {
   });
 
   renderHome();
-
+updateStats(snap);
 });
 /* =========================
    2. REAL LIVE UI RENDER LOOP (EVERY 1s)
@@ -479,7 +488,81 @@ const isSelected = selectedTournament?.id === t.id;
     </div>
   `;
 }
+function updateStats(tournamentsSnap){
 
+  let liveCups = 0;
+
+  const now = Date.now();
+
+
+  tournamentsSnap.forEach(doc=>{
+
+    const t = doc.data();
+
+    const start = t.startTime?.toMillis?.() ?? t.startTime;
+    const end = t.endTime?.toMillis?.() ?? t.endTime;
+
+
+    if(now >= start && now <= end){
+      liveCups++;
+    }
+
+  });
+
+
+  const liveElement = document.getElementById("live-cups");
+
+  if(liveElement){
+    liveElement.innerText = liveCups;
+  }
+
+}
+async function updateTraderCount(){
+
+  try {
+
+    const usersRef = collection(db,"users");
+
+    const snapshot = await getCountFromServer(usersRef);
+
+    const count = snapshot.data().count;
+
+
+    const traderElement = document.getElementById("trader-count");
+
+    if(traderElement){
+      traderElement.innerText = count.toLocaleString();
+    }
+
+
+  } catch(error){
+
+    console.error("Trader count error:", error);
+
+  }
+
+}
+async function updateDownloadCount(){
+
+  const statsRef = doc(db,"websiteStats","downloads");
+
+  onSnapshot(statsRef,(snap)=>{
+
+    if(snap.exists()){
+
+      const count = snap.data().count || 0;
+
+      const el = document.getElementById("download-count");
+
+      if(el){
+        el.innerText = count.toLocaleString() + "+";
+      }
+
+    }
+
+  });
+
+}
 
 window.selectTournament = function(id) {
 
