@@ -583,3 +583,44 @@ body{
   font-size:11px;
 
 }
+.footer {
+  margin-top: 40px;
+  padding: 30px 20px 100px;
+  text-align: center;
+  background: #020617;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.footer-logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.footer p {
+  max-width: 600px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+.footer-links {
+  margin-top: 20px;
+}
+
+.footer-links a {
+  color: #22c55e;
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #64748b;
+}
