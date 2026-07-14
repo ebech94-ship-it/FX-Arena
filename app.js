@@ -9,7 +9,7 @@ import {
   getDoc,
   setDoc,
   increment,
-  onSnapshot
+ 
 } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
 /* =========================
@@ -26,6 +26,7 @@ console.log("🔥 FX Arena Live Engine Started");
 
 updateTraderCount();
 updateDownloadCount();
+trackOnlineUsers();
 let selectedTournament = null;
 
 
@@ -558,6 +559,85 @@ async function updateDownloadCount(){
         el.innerText = count.toLocaleString() + "+";
       }
 
+    }
+
+  });
+
+}
+async function trackOnlineUsers(){
+
+  const sessionId = crypto.randomUUID();
+
+  const onlineRef = doc(
+    db,
+    "websiteStats",
+    "online",
+    "sessions",
+    sessionId
+  );
+
+
+  // create session
+  await setDoc(onlineRef,{
+    active:true,
+    lastSeen:Date.now()
+  });
+
+
+  // heartbeat every 20 seconds
+  setInterval(async()=>{
+
+    await setDoc(
+      onlineRef,
+      {
+        active:true,
+        lastSeen:Date.now()
+      },
+      {
+        merge:true
+      }
+    );
+
+  },20000);
+
+
+  // listen online count
+  const sessionsRef = collection(
+    db,
+    "websiteStats",
+    "online",
+    "sessions"
+  );
+
+
+  onSnapshot(sessionsRef,(snap)=>{
+
+    const now = Date.now();
+
+    let online = 0;
+
+
+    snap.forEach(doc=>{
+
+      const data = doc.data();
+
+      // active within last 60 seconds
+      if(
+        now - data.lastSeen < 60000
+      ){
+        online++;
+      }
+
+    });
+
+
+    const el = document.getElementById(
+      "online-count"
+    );
+
+
+    if(el){
+      el.innerText = online;
     }
 
   });

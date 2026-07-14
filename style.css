@@ -545,27 +545,31 @@ body{
 .stats{
   display:flex;
   justify-content:center;
-  gap:20px;
-  flex-wrap:wrap;
-  margin:40px auto;
-  padding:20px;
+  align-items:center;
+  gap:8px;
+  flex-wrap:nowrap;
+  margin:15px auto;
+  padding:5px;
+  width:100%;
+  max-width:500px;
 }
 
 
 .stat-box{
 
   background:#111827;
-  border-radius:15px;
-  padding:20px 30px;
+  border-radius:10px;
+  padding:10px 5px;
   text-align:center;
-  min-width:150px;
+  flex:1;
+  min-width:0;
 
 }
 
 
 .stat-box h2{
 
-  font-size:32px;
+  font-size:20px;
   margin:0;
   color:#22c55e;
 
@@ -574,8 +578,8 @@ body{
 
 .stat-box p{
 
-  margin-top:8px;
+  margin-top:5px;
   color:white;
-  font-size:15px;
+  font-size:11px;
 
 }
