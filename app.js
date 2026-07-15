@@ -27,6 +27,12 @@ console.log("🔥 FX Arena Live Engine Started");
 updateTraderCount();
 updateDownloadCount();
 trackOnlineUsers();
+
+onSnapshot(tournamentsRef,(snap)=>{
+  document.getElementById("tournament-count").innerText =
+  snap.size + "+";
+});
+
 let selectedTournament = null;
 
 
@@ -511,36 +517,28 @@ function updateStats(tournamentsSnap){
   });
 
 
-  const liveElement = document.getElementById("live-cups");
+const liveElement = document.getElementById("tournament-count");
 
   if(liveElement){
     liveElement.innerText = liveCups;
   }
 
 }
-async function updateTraderCount(){
+function updateTraderCount(){
 
-  try {
+  const usersRef = collection(db,"users");
 
-    const usersRef = collection(db,"users");
+  onSnapshot(usersRef,(snap)=>{
 
-    const snapshot = await getCountFromServer(usersRef);
-
-    const count = snapshot.data().count;
-
+    const count = snap.size;
 
     const traderElement = document.getElementById("trader-count");
 
     if(traderElement){
-      traderElement.innerText = count.toLocaleString();
+      traderElement.innerText = count.toLocaleString() + "+";
     }
 
-
-  } catch(error){
-
-    console.error("Trader count error:", error);
-
-  }
+  });
 
 }
 async function updateDownloadCount(){
@@ -598,7 +596,7 @@ async function trackOnlineUsers(){
       }
     );
 
-  },20000);
+  },10000);
 
 
   // listen online count

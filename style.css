@@ -82,20 +82,24 @@ body{
 /* SCREENSHOTS */
 .screens{
   display:flex;
-  justify-content:center;
-  gap:10px;
-  padding:20px;
+  gap:12px;
+  overflow-x:auto;
+  padding:10px 15px;
+  scroll-snap-type:x mandatory;
 }
 
-.screens img{
-  width:100px;
-  border-radius:10px;
+.screens img,
+.screens video{
+  width:140px;
+  flex-shrink:0;
+  border-radius:12px;
+  scroll-snap-align:start;
 }
 
 /* CTA */
 .cta{
   text-align:center;
-  padding:60px 20px;
+  padding: 20px;
 }
 
 .glow{
@@ -544,14 +548,14 @@ body{
 
 .stats{
   display:flex;
-  justify-content:center;
   align-items:center;
-  gap:8px;
+  gap:10px;
+  overflow-x:auto;
   flex-wrap:nowrap;
   margin:15px auto;
-  padding:5px;
+  padding:5px 15px;
   width:100%;
-  max-width:500px;
+  box-sizing:border-box;
 }
 
 
@@ -561,8 +565,8 @@ body{
   border-radius:10px;
   padding:10px 5px;
   text-align:center;
-  flex:1;
-  min-width:0;
+  min-width:120px;
+  flex-shrink:0;
 
 }
 
