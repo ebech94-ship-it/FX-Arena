@@ -275,49 +275,17 @@ if (ref) {
   localStorage.setItem("inviteRef", ref);
 }
 
-async function downloadApp(button) {
-  if(button.dataset.loading === "true") return;
+function downloadApp(button) {
 
-  button.dataset.loading = "true";
-  const oldText = button.innerHTML;
+  const url = "https://firebasestorage.googleapis.com/v0/b/forex-tournaments-arena.firebasestorage.app/o/app.release.apk?alt=media&token=35257825-53e0-4478-8cbc-f2ed8397b68c";
 
-  button.innerHTML = "⏳ Preparing...";
-  button.style.pointerEvents = "none";
-
-  setTimeout(async ()=>{
-    const confirmDownload = confirm(
-      "FX Arena APK is ready.\n\nPress OK to start download."
-    );
-
-    if(confirmDownload){
-      const statsRef = doc(db,"websiteStats","downloads");
-
-      await setDoc(
-        statsRef,
-        {
-          count: increment(1)
-        },
-        {
-          merge:true
-        }
-      );
-
-
-      const ref = localStorage.getItem("inviteRef");
-
-      const url = "https://firebasestorage.googleapis.com/v0/b/forex-tournaments-arena.firebasestorage.app/o/app.release.apk?alt=media&token=35257825-53e0-4478-8cbc-f2ed8397b68c";
-
-window.location.href = url;
-
-    }
-
-    button.innerHTML = oldText;
-    button.style.pointerEvents = "auto";
-    button.dataset.loading = "false";
-
-  },800);
+  window.open(url, "_blank");
 
 }
+
+   
+
+
 </script>
 
 <script type="module" src="app.js"></script>
