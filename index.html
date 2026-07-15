@@ -305,12 +305,9 @@ async function downloadApp(button) {
 
       const ref = localStorage.getItem("inviteRef");
 
-      const url = ref
-        ? `/app-release.apk?ref=${ref}`
-        : `/app-release.apk`;
+      const url = "https://firebasestorage.googleapis.com/v0/b/forex-tournaments-arena.firebasestorage.app/o/app.release.apk?alt=media&token=35257825-53e0-4478-8cbc-f2ed8397b68c";
 
-
-      window.location.href = url;
+window.location.href = url;
 
     }
 
