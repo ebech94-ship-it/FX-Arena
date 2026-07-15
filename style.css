@@ -38,7 +38,7 @@ body{
 
 /* HERO */
 .hero{
-  padding:120px 20px 60px;
+  padding:80px 15px 30px;
   text-align:center;
 }
 
@@ -111,7 +111,7 @@ body{
 .menu-icon{
   position:fixed;
   top:63px;   /* ⬅ PUSHES BELOW TOPBAR */
-  left:15px;
+  left:1px;
   width:90px;
   height:45px;
   border:none;
@@ -128,7 +128,7 @@ body{
   position:fixed;
   top:0;
   left:0;
-  width:100%;
+  width:90%;
   height:100%;
   background:rgba(0,0,0,0.5);
   display:none;
