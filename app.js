@@ -8,6 +8,7 @@ import {
   doc,
   getDoc,
   setDoc,
+  updateDoc,
   increment,
  
 } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
@@ -19,6 +20,7 @@ const liveList = document.getElementById("live-list");
 const leaderboardList = document.getElementById("leaderboard-list");
 const rewardsList = document.getElementById("rewards-list");
 
+const tournamentsRef = collection(db, "tournaments");
 /* =========================
    LIVE CONNECTION STATUS
 ========================= */
@@ -41,7 +43,7 @@ let selectedTournament = null;
    LIVE TOURNAMENTS (REAL-TIME COUNTDOWN FIXED)
 ========================= */
 
-const tournamentsRef = collection(db, "tournaments");
+
 
 /* CACHE DATA FROM FIRESTORE */
 let tournamentsCache = [];
@@ -562,6 +564,7 @@ async function updateDownloadCount(){
   });
 
 }
+
 async function trackOnlineUsers(){
 
   const sessionId = crypto.randomUUID();
@@ -652,4 +655,19 @@ window.selectTournament = function(id) {
   renderHome();
 
   // optional: update other tabs later
+};
+function trackDownload(){
+
+ const statsRef = doc(db,"websiteStats","downloads");
+
+ updateDoc(statsRef,{
+   count: increment(1)
+ }).catch(async()=>{
+
+   await setDoc(statsRef,{
+     count:1
+   });
+
+ });
+
 };
