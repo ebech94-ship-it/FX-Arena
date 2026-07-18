@@ -72,6 +72,10 @@ function formatTime(ms) {
 onSnapshot(tournamentsRef, (snap) => {
 
   tournamentsCache = [];
+  const tournamentElement = document.getElementById("tournament-count");
+if (tournamentElement) {
+  tournamentElement.innerText = snap.size + "+";
+}
 
   snap.forEach((docSnap) => {
 
@@ -517,26 +521,22 @@ function updateStats(tournamentsSnap){
     }
 
   });
-
-
-const liveElement = document.getElementById("tournament-count");
-
-  if(liveElement){
-    liveElement.innerText = liveCups;
-  }
-
 }
-function updateTraderCount(){
 
-  const usersRef = collection(db,"users");
 
-  onSnapshot(usersRef,(snap)=>{
+function updateTraderCount() {
 
-    const count = snap.size;
+  const counterRef = doc(db, "meta", "userCounter");
+
+  onSnapshot(counterRef, (snap) => {
+
+    if (!snap.exists()) return;
+
+    const count = snap.data().count || 0;
 
     const traderElement = document.getElementById("trader-count");
 
-    if(traderElement){
+    if (traderElement) {
       traderElement.innerText = count.toLocaleString() + "+";
     }
 
@@ -599,7 +599,7 @@ async function trackOnlineUsers(){
       }
     );
 
-  },10000);
+ },30000);
 
 
   // listen online count
@@ -624,7 +624,7 @@ async function trackOnlineUsers(){
 
       // active within last 60 seconds
       if(
-        now - data.lastSeen < 60000
+        now - data.lastSeen < 180000
       ){
         online++;
       }
