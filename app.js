@@ -26,10 +26,13 @@ const tournamentsRef = collection(db, "tournaments");
 ========================= */
 console.log("🔥 FX Arena Live Engine Started");
 
-updateTraderCount();
-updateDownloadCount();
-trackOnlineUsers();
+window.addEventListener("DOMContentLoaded", () => {
 
+  updateTraderCount();
+  updateDownloadCount();
+  trackOnlineUsers();
+
+});
 onSnapshot(tournamentsRef,(snap)=>{
   document.getElementById("tournament-count").innerText =
   snap.size + "+";
@@ -523,18 +526,19 @@ function updateStats(tournamentsSnap){
   });
 }
 
-
 function updateTraderCount() {
 
   const counterRef = doc(db, "meta", "userCounter");
 
   onSnapshot(counterRef, (snap) => {
 
-    if (!snap.exists()) return;
+    console.log("USER COUNTER:", snap.data());
 
     const count = snap.data().count || 0;
 
     const traderElement = document.getElementById("trader-count");
+
+    console.log("ELEMENT:", traderElement);
 
     if (traderElement) {
       traderElement.innerText = count.toLocaleString() + "+";
@@ -543,6 +547,7 @@ function updateTraderCount() {
   });
 
 }
+
 async function updateDownloadCount(){
 
   const statsRef = doc(db,"websiteStats","downloads");
