@@ -661,7 +661,8 @@ window.selectTournament = function(id) {
 
   // optional: update other tabs later
 };
-function trackDownload(){
+
+window.trackDownload = async function(){
 
  const statsRef = doc(db,"websiteStats","downloads");
 
