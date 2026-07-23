@@ -4,15 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>FX Arena - Trade. Compete. Win.</title>
+<title>FX Arena - Forex Simulation Tournaments & Trading Education</title>
 
 <link rel="stylesheet" href="style.css">
 
 <!-- WhatsApp / Facebook Preview -->
-<meta property="og:title" content="FX Arena - Trade. Compete. Win.">
+<meta property="og:title" content="FX Arena - Forex Simulation Tournaments & Trading Education">
 
 <meta property="og:description" content="Join forex tournaments and compete with traders worldwide.">
+<meta name="description" content="FX Arena is a forex trading simulation platform where traders compete in virtual tournaments, improve skills, and climb global leaderboards.">
 
+<meta name="keywords" content="forex tournament, trading competition, forex simulator, trading practice, FX Arena">
 <meta property="og:image" content="https://www.republic.beauty/images/icon.png">
 
 <meta property="og:url" content="https://www.republic.beauty">
@@ -64,16 +66,73 @@
 
 <!-- HERO -->
 <section class="hero">
-  <h1>Trade. Compete. Win.</h1>
-  <p>Join forex trading tournaments and compete 
-    with Traders worldwide.</p>
+  <h1>Learn Forex Skills. Compete. Improve.</h1>
+
+<p>
+FX Arena is a simulated forex trading competition platform where users
+practice strategies, compete in virtual tournaments, and develop trading
+skills using virtual accounts.
+</p>
 
  <a class="download-main" href="javascript:void(0)" onclick="trackDownload(); downloadApp(this)">
-  ⬇ Download APK
+  ⬇ Download FX Arena App
 </a>
 </section>
 
 
+<section class="about-app">
+
+
+<h2>Purpose of FX Arena</h2>
+
+<p>
+FX Arena is an educational forex trading simulation platform designed
+for learning, training, and developing trading skills through virtual
+competitions.
+</p>
+
+<p>
+The purpose of FX Arena is to help users practice trading strategies,
+understand market concepts, improve decision-making skills, and measure
+their progress in a risk-safe simulated environment using virtual accounts.
+</p>
+<p>
+FX Arena does not provide real financial trading services, brokerage
+services, investment products, financial advice, or access to real money
+markets.
+</p>
+<p>
+Some FX Arena tournaments may offer real-world rewards or prizes.
+Rewards are provided according to tournament rules, eligibility
+requirements, and verification procedures. FX Arena is not a broker,
+investment platform, or real-money trading service.
+</p>
+
+<p>
+Prize distribution may involve third-party payment providers for
+processing eligible rewards. These services operate independently and
+their own terms may apply.
+</p>
+<section class="trust">
+
+<div>
+✅ Virtual Trading Only
+</div>
+
+<div>
+🏆 Skill-Based Competition
+</div>
+
+<div>
+🔒 No Real Money Trading
+</div>
+
+<div>
+🌍 Global Community
+</div>
+
+</section>
+</section>
 <!-- STATS -->
  <section class="stats">
 
@@ -102,34 +161,11 @@
 
 <!-- BENEFITS -->
 <section class="benefits">
-  <div class="card">🏆 Real Competition</div>
+  <div class="card">🏆 Competitive Tournaments</div>
   <div class="card">📊 Skill-Based Ranking</div>
   <div class="card">⚡ Free Demo Mode</div>
 </section>
-<section class="about-app">
 
-<section class="about-app">
-
-<h2>Purpose of FX Arena</h2>
-
-<p>
-FX Arena is an educational forex trading simulation platform designed
-for learning, training, and developing trading skills through virtual
-competitions.
-</p>
-
-<p>
-The purpose of FX Arena is to help users practice trading strategies,
-understand market concepts, improve decision-making skills, and measure
-their progress in a risk-safe simulated environment using virtual accounts.
-</p>
-<p>
-FX Arena does not provide real financial trading services, brokerage
-services, investment products, financial advice, or access to real money
-markets.
-</p>
-
-</section>
 <!-- SCREENSHOTS -->
 <section class="screens">
 
@@ -170,6 +206,8 @@ markets.
   <a class="download-main glow" href="javascript:void(0)" onclick="trackDownload(); downloadApp(this)">
   ⬇ Install FX Arena Now
 </a>
+</section>
+
 <!-- FOOTER -->
 <footer class="footer">
 
@@ -178,8 +216,9 @@ markets.
   </div>
 
   <p>
-    FX Arena provides simulated forex tournaments and educational trading competitions.
-    No real trading, brokerage, investment, or financial advisory services are provided.
+   FX Arena is an educational forex simulation platform.
+All trading activities use virtual funds and simulated markets.
+No real financial trading, brokerage, investment services, or financial advice are offered.
   </p>
 
   <div class="footer-links">
@@ -194,8 +233,12 @@ markets.
       Privacy Policy
     </a>
 
-    <span>|</span>
+<span>|</span>
 
+<a href="risk-disclaimer.html">
+Risk Disclaimer
+</a>
+<span>|</span>
     <a href="contact.html">
       Contact
     </a>
@@ -209,7 +252,7 @@ markets.
   </div>
 
 </footer>
-</section>
+
 <!-- BOTTOM NAV -->
 <div class="bottom-nav">
 
@@ -298,7 +341,9 @@ window.downloadApp = function(button) {
 
  const url = "https://firebasestorage.googleapis.com/v0/b/forex-tournaments-arena.firebasestorage.app/o/FX%20Arena.apk?alt=media&token=2684221e-05e8-459e-986f-426e19706b59";
 
- window.location.href = url;
+ setTimeout(()=>{
+ window.location.href=url;
+},300);
 
 }
 
