@@ -1,361 +1,513 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>FX Arena - Forex Simulation Tournaments & Trading Education</title>
+  <title>GodSpeed Technologies | Innovating Today, Transforming Tomorrow</title>
 
-<link rel="stylesheet" href="style.css">
+  <meta name="description" content="GodSpeed Technologies builds technology, education, healthcare, transportation, commerce, and benevolence solutions for a better future.">
+  <meta name="keywords" content="GodSpeed Technologies, FX Arena, GS Mobility, GS Invest, YouCashM">
+  <meta name="theme-color" content="#071426">
 
-<!-- WhatsApp / Facebook Preview -->
-<meta property="og:title" content="FX Arena - Forex Simulation Tournaments & Trading Education">
+  <meta property="og:title" content="GodSpeed Network">
+  <meta property="og:description" content="Innovating today. Transforming tomorrow.">
+  <meta property="og:image" content="https://www.republic.beauty/gsnet.jpg">
+  <meta property="og:url" content="https://www.republic.beauty">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
 
-<meta property="og:description" content="Join forex tournaments and compete with traders worldwide.">
-<meta name="description" content="FX Arena is a forex trading simulation platform where traders compete in virtual tournaments, improve skills, and climb global leaderboards.">
-
-<meta name="keywords" content="forex tournament, trading competition, forex simulator, trading practice, FX Arena">
-<meta property="og:image" content="https://www.republic.beauty/images/icon.png">
-
-<meta property="og:url" content="https://www.republic.beauty">
-
-<meta property="og:type" content="website">
-
-<!-- Twitter / other previews -->
-<meta name="twitter:card" content="summary_large_image">
-
-<link rel="icon" href="https://www.republic.beauty/images/icon.png">
-
+  <link rel="icon" href="https://www.republic.beauty/images/icon.png">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ☰ MENU BUTTON (ADDED) -->
-<button class="menu-icon" onclick="toggleMenu()">☰</button>
+  <!-- HEADER: Main company navigation -->
+  <header class="topbar">
+    <a class="logo" href="#home" aria-label="GodSpeed Network home">
+      <span class="logo-mark">GS</span>
+     <span>GODSPEED <strong>TECHNOLOGIES</strong></span>
+    </a>
 
-<!-- OVERLAY (ADDED) -->
-<div id="overlay" class="overlay" onclick="toggleMenu()"></div>
+    <button class="menu-icon" type="button"
+      onclick="toggleMenu()" aria-label="Open navigation menu">☰</button>
 
-<!-- SIDEBAR (ADDED) -->
-<div id="sidebar" class="sidebar">
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#technology">Technology</a>
+      <a href="#education">Education</a>
+      <a href="#health">Health</a>
+      <a href="#transportation">Transportation</a>
+      <a href="#commerce">Commerce</a>
+      <a href="#benevolence">Benevolence</a>
+    </nav>
 
-  <a href="index.html">🏠 Home</a>
-  <a href="learn.html">📘 Learn</a>
-  <a href="principle.html">⚙️ Principle</a>
-  <a href="fairness.html">⚖️ Fairness</a>
-  <a href="skills.html">📊 Skills</a>
-  <a href="faq.html">❓ FAQ</a>
-  <a href="contact.html">📩 Contact</a>
+    <a class="download-top" href="#products">Explore Our Work</a>
+  </header>
 
-  <hr style="border:1px solid #1f2937">
+  <!-- MOBILE SIDEBAR -->
+  <div id="overlay" class="overlay" onclick="toggleMenu()"></div>
 
-  <a href="javascript:void(0)" onclick="trackDownload(); downloadApp(this)" style="color:#22c55e;">
-  ⬇ Download App
-</a>
+  <aside id="sidebar" class="sidebar" aria-label="Mobile navigation">
+    <a href="#home" onclick="toggleMenu()">Home</a>
+    <a href="#about" onclick="toggleMenu()">About Us</a>
+    <a href="#technology" onclick="toggleMenu()">Technology</a>
+    <a href="#education" onclick="toggleMenu()">Education</a>
+    <a href="#health" onclick="toggleMenu()">Health</a>
+    <a href="#transportation" onclick="toggleMenu()">Transportation</a>
+    <a href="#commerce" onclick="toggleMenu()">Commerce</a>
+    <a href="#benevolence" onclick="toggleMenu()">Benevolence</a>
+    <a href="#products" onclick="toggleMenu()">Our Products</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+  </aside>
 
-</div>
+  <main>
 
-<!-- TOP BAR -->
-<div class="topbar">
-  <div class="logo">⚡ FX Arena</div>
+    <!-- HERO: Your existing corporate image -->
+    <section class="hero network-hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">GodSpeed Technologies</p>
 
-  <a class="download-top" href="javascript:void(0)" onclick="trackDownload(); downloadApp(this)">
-  ⬇ Download
-</a>
-</div>
+        <h1>Innovating Today.<br>Transforming Tomorrow.</h1>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>Learn Forex Skills. Compete. Improve.</h1>
+        <p>
+          Building practical solutions that connect people, empower
+          businesses, create opportunities, and advance communities
+          across Africa and beyond.
+        </p>
 
-<p>
-FX Arena is a simulated forex trading competition platform where users
-practice strategies, compete in virtual tournaments, and develop trading
-skills using virtual accounts.
-</p>
+        <div class="hero-actions">
+          <a class="download-main" href="#products">Explore Our Products</a>
+          <a class="hero-secondary" href="#about">Discover Our Mission</a>
+        </div>
+      </div>
 
- <a class="download-main" href="javascript:void(0)" onclick="trackDownload(); downloadApp(this)">
-  ⬇ Download FX Arena App
-</a>
-</section>
+      <img
+        class="network-hero-image"
+        src="images/gsnet.jpg"
+        alt="GodSpeed Technologies headquarters, transportation fleet, and core business domains"
+        fetchpriority="high"
+      />
+    </section>
 
+    <!-- ABOUT THE COMPANY -->
+    <section class="about-app network-about" id="about">
+      <p class="eyebrow">WHO WE ARE</p>
+      <h2>One Ecosystem. Multiple Opportunities.</h2>
 
-<section class="about-app">
+      <p>
+        GodSpeed Technologies Company is a growing business network focused on developing
+        technology, education, healthcare, transportation, commerce, and
+        community-support solutions.
+      </p>
 
+      <p>
+        Our goal is to build useful products and services that solve everyday
+        problems, support economic participation, and create lasting value.
+      </p>
 
-<h2>Purpose of FX Arena</h2>
+      <p class="brand-promise">
+        Discipline. Patience. Swiftness. Excellence.
+      </p>
+    </section>
 
-<p>
-FX Arena is an educational forex trading simulation platform designed
-for learning, training, and developing trading skills through virtual
-competitions.
-</p>
+    <!-- SIX CORE SECTORS -->
+    <section class="network-sectors" id="sectors">
+      <div class="section-heading">
+        <p class="eyebrow">OUR CORE DOMAINS</p>
+        <h2>Six Sectors. One Vision.</h2>
+        <p>Explore the areas through which GodSpeed Technologies aims to make lasting impact.</p>
+      </div>
 
-<p>
-The purpose of FX Arena is to help users practice trading strategies,
-understand market concepts, improve decision-making skills, and measure
-their progress in a risk-safe simulated environment using virtual accounts.
-</p>
-<p>
-FX Arena does not provide real financial trading services, brokerage
-services, investment products, financial advice, or access to real money
-markets.
-</p>
-<p>
-Some FX Arena tournaments may offer real-world rewards or prizes.
-Rewards are provided according to tournament rules, eligibility
-requirements, and verification procedures. FX Arena is not a broker,
-investment platform, or real-money trading service.
-</p>
+      <div class="sector-grid">
 
-<p>
-Prize distribution may involve third-party payment providers for
-processing eligible rewards. These services operate independently and
-their own terms may apply.
-</p>
-<section class="trust">
+        <article class="sector-card" id="technology">
+          <span class="sector-icon">💻</span>
+          <h3>Technology</h3>
+          <p>
+            Digital platforms, software solutions, financial technology,
+            and innovative services.
+          </p>
+          <a href="#products">Explore technology →</a>
+        </article>
 
-<div>
-✅ Virtual Trading Only
-</div>
+        <article class="sector-card" id="education">
+          <span class="sector-icon">🎓</span>
+          <h3>Education</h3>
+          <p>
+            Learning resources, practical skills, training, and
+            opportunities for personal development.
+          </p>
+         <a href="education.html">Discover our vision →</a>
+        </article>
 
-<div>
-🏆 Skill-Based Competition
-</div>
+        <article class="sector-card" id="health">
+          <span class="sector-icon">❤</span>
+          <h3>Health</h3>
+          <p>
+            Healthcare access, health-related technology, and solutions
+            supporting community wellbeing.
+          </p>
+          <a href="health.html">Discover our vision →</a>
+        </article>
 
-<div>
-🔒 No Real Money Trading
-</div>
+        <article class="sector-card" id="transportation">
+          <span class="sector-icon">🚌</span>
+          <h3>Transportation</h3>
+          <p>
+            Mobility, passenger transport, logistics, and connected
+            transportation services.
+          </p>
+          <a href="#gs-mobility">Explore GS Mobility →</a>
+        </article>
 
-<div>
-🌍 Global Community
-</div>
+        <article class="sector-card" id="commerce">
+          <span class="sector-icon">🛒</span>
+          <h3>Commerce</h3>
+          <p>
+            Retail, local goods, distribution, stores, and accessible
+            everyday commerce.
+          </p>
+          <a href="commerce.html">Discover our vision →</a>
+        </article>
 
-</section>
-</section>
-<!-- STATS -->
- <section class="stats">
+        <article class="sector-card" id="benevolence">
+          <span class="sector-icon">🤝</span>
+          <h3>Benevolence</h3>
+          <p>
+            Community support, social impact, and initiatives that help
+            people and communities progress.
+          </p>
+          <a href="benevolence.html">Our social mission →</a>
+        </article>
 
-  <div class="stat-box">
-    <h2 id="download-count">0</h2>
-    <p>Downloads</p>
+      </div>
+    </section>
+
+    <!-- PRODUCTS: Each product has its own stable ID and sector -->
+    <section class="network-products" id="products">
+      <div class="section-heading">
+        <p class="eyebrow">BUILT BY GODSPEED</p>
+        <h2>Our Products & Initiatives</h2>
+        <p>
+          Explore our platforms and follow their progress as the network grows.
+        </p>
+      </div>
+
+      <div class="product-grid">
+
+        <!-- PRODUCT 1: FX ARENA -->
+        <article class="product-card" id="fx-arena" data-sector="technology">
+          <div class="product-brand">
+            <img
+              class="product-icon"
+              src="images/icon.png"
+              alt="FX ARENA app icon"
+              loading="lazy"
+            />
+            <div>
+              <h3>FX ARENA</h3>
+              <p class="product-category">Technology · Forex Trading Education</p>
+            </div>
+          </div>
+
+          <span class="product-status available">Available</span>
+
+          <p>
+            A forex simulation and tournament platform where users practise
+            trading strategies, compete, and develop their skills.
+          </p>
+
+          <a class="product-button"
+             href="javascript:void(0)"
+             onclick="trackDownload(); downloadApp(this)">
+            Download FX ARENA
+          </a>
+
+          <!-- Existing FX ARENA media, retained for the product gallery -->
+          <div class="product-gallery" aria-label="FX ARENA app previews">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="images/video0.mp4" type="video/mp4">
+            </video>
+            <img src="images/screenshot-1.png" alt="FX ARENA app preview" loading="lazy">
+
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="images/video1.mp4" type="video/mp4">
+            </video>
+          
+            <img src="images/screenshot-3.png" alt="FX ARENA interface preview" loading="lazy">
+
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="images/video3.mp4" type="video/mp4">
+            </video>
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="images/video4.mp4" type="video/mp4">
+            </video>
+           
+          </div>
+        </article>
+
+       
+<!-- PRODUCT 2: GS MOBILITY -->
+<article class="product-card" id="gs-mobility" data-sector="transportation">
+  <div class="product-brand">
+    <img class="product-icon" src="images/gsm.png" alt="GS Mobility logo">
+    <div>
+      <h3>GS Mobility</h3>
+      <p class="product-category">Transportation · Mobility</p>
+    </div>
   </div>
 
-  <div class="stat-box">
-    <h2 id="trader-count">0</h2>
-    <p>Users</p>
-  </div>
-
-  <div class="stat-box">
-    <h2 id="online-count">0</h2>
-    <p>Online</p>
-  </div>
-
-  <div class="stat-box">
-    <h2 id="tournament-count">0</h2>
-    <p>Tournaments</p>
-  </div>
-
-</section>
-
-
-<!-- BENEFITS -->
-<section class="benefits">
-  <div class="card">🏆 Competitive Tournaments</div>
-  <div class="card">📊 Skill-Based Ranking</div>
-  <div class="card">⚡ Free Demo Mode</div>
-</section>
-
-<!-- SCREENSHOTS -->
-<section class="screens">
-
-<video autoplay muted loop playsinline>
-    <source src="images/video0.mp4" type="video/mp4">
-  </video>
-  <img src="images/screenshot-1.png">
-
-  <video autoplay muted loop playsinline>
-    <source src="images/video1.mp4" type="video/mp4">
-  </video>
-
-  <img src="images/screenshot-2.png">
-
-  <video autoplay muted loop playsinline>
-    <source src="images/video2.mp4" type="video/mp4">
-  </video>
-
-  <img src="images/screenshot-3.png">
-
-  <video autoplay muted loop playsinline>
-    <source src="images/video3.mp4" type="video/mp4">
-  </video>
-
-  <video autoplay muted loop playsinline>
-    <source src="images/video4.mp4" type="video/mp4">
-  </video>
-
-  <video autoplay muted loop playsinline>
-    <source src="images/video5.mp4" type="video/mp4">
-  </video>
-
-</section>
-
-<!-- FINAL CTA -->
-<section class="cta">
-  <h2>Ready to start?</h2>
-  <a class="download-main glow" href="javascript:void(0)" onclick="trackDownload(); downloadApp(this)">
-  ⬇ Install FX Arena Now
-</a>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-
-  <div class="footer-logo">
-    ⚡ FX Arena
-  </div>
+  <span class="product-status development">Under Development</span>
 
   <p>
-   FX Arena is an educational forex simulation platform.
-All trading activities use virtual funds and simulated markets.
-No real financial trading, brokerage, investment services, or financial advice are offered.
+    A developing mobility platform connecting passengers, transport
+    operators, and transportation services.
   </p>
 
-  <div class="footer-links">
+  <a class="product-button" href="gs-mobility.html">Learn More</a>
 
-    <a href="terms.html">
-      Terms & Conditions
-    </a>
+  <!-- AUTOMATIC GS MOBILITY SCREENSHOT SLIDESHOW -->
+  <div class="mobility-slideshow" aria-label="GS Mobility app previews">
+    <div class="mobility-slides">
+      <figure>
+        <img src="images/gsml.jpg" alt="GS Mobility sign-up and login screen" loading="lazy">
+        <figcaption>Welcome & Account Access</figcaption>
+      </figure>
 
-    <span>|</span>
- <a href="delete-account.html">
-      Delete Account
-    </a>
+      <figure>
+        <img src="images/gsmh.jpg" alt="GS Mobility home screen" loading="lazy">
+        <figcaption>Home Dashboard</figcaption>
+      </figure>
 
-    <span>|</span>
-    <a href="privacy.html">
-      Privacy Policy
-    </a>
+      <figure>
+        <img src="images/gsmt.jpg" alt="GS Mobility trips screen" loading="lazy">
+        <figcaption>Find Your Trip</figcaption>
+      </figure>
 
-<span>|</span>
+      <figure>
+        <img src="images/gsmb.jpg" alt="GS Mobility booking screen" loading="lazy">
+        <figcaption>Seat Booking</figcaption>
+      </figure>
 
-<a href="risk-disclaimer.html">
-Risk Disclaimer
-</a>
-<span>|</span>
-    <a href="contact.html">
-      Contact
-    </a>
+      <figure>
+        <img src="images/gsmbc.jpg" alt="GS Mobility booking confirmation and payment screen" loading="lazy">
+        <figcaption>Booking Confirmation</figcaption>
+      </figure>
 
+      <figure>
+        <img src="images/gsmm.jpg" alt="GS Mobility monitoring screen" loading="lazy">
+        <figcaption>Booking & Trip Monitoring</figcaption>
+      </figure>
+    </div>
   </div>
-  <div class="powered">
-    Powered by <strong>GodSpeed Technologies</strong>
+</article>
+
+
+        <!-- PRODUCT 3: GS INVEST -->
+        <article class="product-card" id="gs-invest" data-sector="technology">
+          <div class="product-brand">
+            <img class="product-icon" src="images/gsinvest.png" alt="GS Invest logo">
+            <div>
+              <h3>GS Invest</h3>
+              <p class="product-category">Technology · Investment Initiatives</p>
+            </div>
+          </div>
+
+          <span class="product-status coming-soon">Coming Soon</span>
+
+          <p>
+            A planned initiative exploring accessible financial and
+            investment-related solutions.
+          </p>
+
+          <a class="product-button" href="#contact">Follow Our Progress</a>
+        </article>
+
+        <!-- PRODUCT 4: YOUCASHM -->
+        <article class="product-card" id="youcashm" data-sector="technology">
+          <div class="product-brand">
+           <img class="product-icon" src="images/ycm.jpg" alt="YouCashM logo">
+            <div>
+              <h3>YouCashM</h3>
+              <p class="product-category">Technology · Digital Entertainment</p>
+            </div>
+          </div>
+
+          <span class="product-status coming-soon">Coming Soon</span>
+
+          <p>
+            A planned digital gaming initiative. Further details and
+            availability will be announced when ready.
+          </p>
+
+          <a class="product-button" href="#contact">Stay Connected</a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- LIVE FX ARENA STATISTICS: IDs retained for app.js -->
+    <section class="stats" id="network-stats">
+      <div class="section-heading">
+        <p class="eyebrow">FX ARENA COMMUNITY</p>
+        <h2>Our Growing Community</h2>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-box">
+          <h2 id="download-count">0</h2>
+          <p>Downloads</p>
+        </div>
+
+        <div class="stat-box">
+          <h2 id="trader-count">0</h2>
+          <p>Users</p>
+        </div>
+
+        <div class="stat-box">
+          <h2 id="online-count">0</h2>
+          <p>Online</p>
+        </div>
+
+        <div class="stat-box">
+          <h2 id="tournament-count">0</h2>
+          <p>Tournaments</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXISTING FIREBASE-POWERED FX ARENA PANELS -->
+    <section class="arena-community" id="arena-community">
+      <div class="section-heading">
+        <p class="eyebrow">FX ARENA</p>
+        <h2>Compete. Improve. Progress.</h2>
+        <p>Explore live tournaments, Traders rankings, and rewards.</p>
+      </div>
+
+      <div class="arena-actions">
+        <button type="button" onclick="openTab('live')">🔴 Live Tournaments</button>
+        <button type="button" onclick="openTab('rank')">📊 Leaderboard</button>
+        <button type="button" onclick="openTab('rewards')">🏆 Rewards</button>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="network-contact" id="contact">
+      <p class="eyebrow">LET'S BUILD THE FUTURE</p>
+      <h2>Connect With GodSpeed Network</h2>
+      <p>
+        Interested in our products, services, partnerships, or future initiatives?
+        Get in touch with our team.
+      </p>
+      <a class="download-main" href="contact.html">Contact Us</a>
+    </section>
+
+  </main>
+
+  <!-- CORPORATE FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">GS GODSPEED NETWORK</div>
+
+    <p>Innovating today. Transforming tomorrow.</p>
+    <p>Discipline. Patience. Swiftness. Excellence.</p>
+
+    <nav class="footer-links" aria-label="Legal and company links">
+      <a href="index.html#about">About Us</a>
+      <a href="terms.html">Terms & Conditions</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="risk-disclaimer.html">Risk Disclaimer</a>
+      <a href="delete-account.html">Delete Account</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="social-links">
+      <!-- Add verified social profile URLs here when ready. -->
+      <span>Follow GodSpeed Network</span>
+    </div>
+
+    <div class="powered">
+      Powered by <strong>GodSpeed Technologies</strong>
+    </div>
+
+    <div class="copyright">
+      © 2026 GodSpeed Network. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- EXISTING FX ARENA LIVE DATA PANEL -->
+  <div id="panel" class="panel">
+    <div class="panel-header">
+      <span id="panel-title">FX ARENA</span>
+      <button type="button" onclick="closePanel()" aria-label="Close panel">✖</button>
+    </div>
+
+    <div id="panel-content">
+      <div id="home-tab" class="tab-page"></div>
+
+      <div id="rank-tab" class="tab-page" style="display:none;">
+        <div id="leaderboard-list"></div>
+      </div>
+
+      <div id="live-tab" class="tab-page" style="display:none;">
+        <div id="live-list"></div>
+      </div>
+
+      <div id="rewards-tab" class="tab-page" style="display:none;">
+        <div id="rewards-list"></div>
+      </div>
+    </div>
   </div>
-  <div class="copyright">
-    © 2026 FX Arena. All rights reserved.
-  </div>
 
-</footer>
+  <script>
+    function toggleMenu() {
+      document.getElementById("sidebar").classList.toggle("show");
+      document.getElementById("overlay").classList.toggle("show");
+    }
 
-<!-- BOTTOM NAV -->
-<div class="bottom-nav">
+    function closePanel() {
+      document.getElementById("panel").classList.remove("show");
+    }
 
-  <button onclick="openTab('home')">🏠 HOME</button>
-  <button onclick="openTab('rank')">📊 RANK</button>
-  <button onclick="openTab('live')">🔴 LIVE</button>
-  <button onclick="openTab('rewards')">👑 REWARDS</button>
+    function openTab(tab) {
+      document.getElementById("panel").classList.add("show");
 
-</div>
-<!-- SLIDE PANEL -->
-<div id="panel" class="panel">
+      document.querySelectorAll(".tab-page").forEach(page => {
+        page.style.display = "none";
+      });
 
-  <div class="panel-header">
-    <span id="panel-title">Menu</span>
-    <button onclick="closePanel()">✖</button>
-  </div>
+      const pages = {
+        home: ["🏠 FX ARENA", "home-tab"],
+        rank: ["📊 Leaderboard", "rank-tab"],
+        live: ["🔴 Live Tournaments", "live-tab"],
+        rewards: ["🏆 Rewards", "rewards-tab"]
+      };
 
-  <div id="panel-content">
+      if (!pages[tab]) return;
 
-<div id="home-tab" class="tab-page"></div>
+      document.getElementById("panel-title").innerText = pages[tab][0];
+      document.getElementById(pages[tab][1]).style.display = "block";
+    }
 
-<div id="rank-tab" class="tab-page" style="display:none;">
-  <div id="leaderboard-list"></div>
-</div>
+    // Preserve FX ARENA referral tracking.
+    const params = new URLSearchParams(window.location.search);
+    const ref = params.get("ref");
 
-<div id="live-tab" class="tab-page" style="display:none;">
-  <div id="live-list"></div>
-</div>
+    if (ref) {
+      localStorage.setItem("inviteRef", ref);
+    }
 
-<div id="rewards-tab" class="tab-page" style="display:none;">
-  <div id="rewards-list"></div>
-</div>
+    // Preserve the existing APK download URL.
+    window.downloadApp = function(button) {
+      const url = "https://firebasestorage.googleapis.com/v0/b/forex-tournaments-arena.firebasestorage.app/o/FX%20AMoney.apk?alt=media&token=75390242-374a-4dc7-8bd7-3652804ca205";
 
-</div>
+      setTimeout(() => {
+        window.location.href = url;
+      }, 300);
+    };
+  </script>
 
-</div>
-<!-- SCRIPT (ADDED) -->
-<script>
-function toggleMenu(){
-  document.getElementById("sidebar").classList.toggle("show");
-  document.getElementById("overlay").classList.toggle("show");
-}
-
-function closePanel(){
-  document.getElementById("panel").classList.remove("show");
-}
-
-function openTab(tab){
-
-  document.getElementById("panel").classList.add("show");
-
-  document.querySelectorAll(".tab-page").forEach(page=>{
-    page.style.display="none";
-  });
-
-  if(tab==="home"){
-    document.getElementById("panel-title").innerText="🏠 Home";
-    document.getElementById("home-tab").style.display="block";
-  }
-
-  if(tab==="rank"){
-    document.getElementById("panel-title").innerText="📊 Leaderboard";
-    document.getElementById("rank-tab").style.display="block";
-  }
-
-  if(tab==="live"){
-    document.getElementById("panel-title").innerText="🔴 Live Tournaments";
-    document.getElementById("live-tab").style.display="block";
-  }
-
-  if(tab==="rewards"){
-    document.getElementById("panel-title").innerText="👑 Rewards";
-    document.getElementById("rewards-tab").style.display="block";
-  }
-}
-
-// ✅ REF CAPTURE (CORRECT)
-const params = new URLSearchParams(window.location.search);
-const ref = params.get("ref");
-
-if (ref) {
-  localStorage.setItem("inviteRef", ref);
-}
-
-window.downloadApp = function(button) {
-
- const url = "https://firebasestorage.googleapis.com/v0/b/forex-tournaments-arena.firebasestorage.app/o/FX%20Arena.apk?alt=media&token=2684221e-05e8-459e-986f-426e19706b59";
-
- setTimeout(()=>{
- window.location.href=url;
-},300);
-
-}
-
-   
-
-
-</script>
-
-<script type="module" src="app.js"></script>
+  <script type="module" src="app.js"></script>
 </body>
 </html>

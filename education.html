@@ -1,0 +1,907 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Education | GodSpeed Technologies</title>
+  <meta name="description" content="Discover the GodSpeed vision for practical education, innovation, technical skills, publishing, and project-based learning.">
+  <meta name="theme-color" content="#081426">
+
+  <style>
+    :root {
+      --navy: #081426;
+      --navy-light: #10233d;
+      --gold: #e7c46a;
+      --white: #ffffff;
+      --muted: #b8c3d4;
+      --background: #f4f6fa;
+      --text: #172238;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .navbar {
+      background: var(--navy);
+      color: white;
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      color: white;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      display: block;
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .nav-links a {
+      color: white;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #081426, #173557);
+      color: white;
+      padding: 85px 7%;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: #b68b2c;
+      font-weight: bold;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero .eyebrow {
+      color: var(--gold);
+    }
+
+    .hero h1 {
+      max-width: 900px;
+      margin: 15px auto;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.15;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto 25px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 21px;
+      border-radius: 7px;
+      font-weight: bold;
+      text-align: center;
+      transition: 0.2s;
+    }
+
+    .button-gold {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .button-gold:hover {
+      background: #f4d987;
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      color: white;
+      border: 1px solid var(--gold);
+    }
+
+    .button-outline:hover {
+      background: rgba(231, 196, 106, 0.12);
+    }
+
+    .section {
+      padding: 65px 7%;
+    }
+
+    .section-heading {
+      max-width: 780px;
+      margin: 0 auto 35px;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      color: var(--navy);
+      font-size: clamp(27px, 4vw, 38px);
+      line-height: 1.25;
+      margin: 8px 0 12px;
+    }
+
+    .section-heading p {
+      color: #647087;
+    }
+
+    .vision {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .vision p {
+      margin-bottom: 15px;
+    }
+
+    .promise {
+      color: #98701a;
+      font-weight: bold;
+      margin-top: 20px;
+      letter-spacing: 1px;
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .principle {
+      background: white;
+      padding: 24px;
+      border: 1px solid #e2e7ef;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .principle .symbol {
+      font-size: 30px;
+    }
+
+    .principle h3 {
+      color: var(--navy);
+      margin: 8px 0;
+    }
+
+    .principle p {
+      color: #647087;
+      font-size: 14px;
+    }
+
+    .institute {
+      background: var(--navy);
+      color: white;
+    }
+
+    .institute .section-heading h2 {
+      color: white;
+    }
+
+    .institute .section-heading p {
+      color: var(--muted);
+    }
+
+    .institute-content {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .institute-intro {
+      max-width: 800px;
+      text-align: center;
+      margin: 0 auto 30px;
+      color: var(--muted);
+    }
+
+    .institute-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .institute-card {
+      background: var(--navy-light);
+      border: 1px solid #34455d;
+      border-radius: 12px;
+      padding: 25px;
+    }
+
+    .institute-card h3 {
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .institute-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .notice {
+      margin: 28px auto 0;
+      padding: 16px;
+      max-width: 850px;
+      border: 1px solid #34455d;
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .projects {
+      background: #eaf0f7;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+    }
+
+    .project-card {
+      background: white;
+      padding: 27px;
+      border-radius: 12px;
+      border: 1px solid #dce3ed;
+      box-shadow: 0 6px 22px rgba(8, 20, 38, 0.05);
+    }
+
+    .project-card .symbol {
+      font-size: 32px;
+    }
+
+    .project-card h3 {
+      color: var(--navy);
+      margin: 10px 0;
+    }
+
+    .project-card p {
+      color: #5e697c;
+      font-size: 14px;
+    }
+
+    .project-note {
+      text-align: center;
+      color: #647087;
+      margin-top: 25px;
+      font-size: 13px;
+    }
+
+    .publishing {
+      background: white;
+    }
+
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+      gap: 25px;
+    }
+
+    .book-card {
+      background: #f8f9fc;
+      border: 1px solid #e2e7ef;
+      border-radius: 12px;
+      padding: 22px;
+      text-align: center;
+    }
+
+    .book-cover {
+      min-height: 250px;
+      padding: 25px 18px;
+      margin-bottom: 20px;
+      background: linear-gradient(145deg, #081426, #173557);
+      border: 3px solid var(--gold);
+      border-radius: 5px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 8px 18px rgba(8, 20, 38, 0.15);
+    }
+
+    .book-cover .book-mark {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .book-cover h3 {
+      color: white;
+      font-size: 24px;
+      line-height: 1.3;
+    }
+
+    .book-cover p {
+      color: var(--gold);
+      margin-top: 18px;
+      font-size: 12px;
+    }
+
+    .book-card h3 {
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .book-card > p {
+      color: #647087;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .book-status {
+      display: inline-block;
+      color: #755512;
+      background: #fff1c8;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .book-button {
+      display: block;
+      background: var(--navy);
+      color: white;
+      padding: 11px 15px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .book-button:hover {
+      background: #173557;
+    }
+
+    .publishing-note {
+      max-width: 800px;
+      margin: 30px auto 0;
+      text-align: center;
+      color: #647087;
+      font-size: 13px;
+    }
+
+    .articles {
+      background: var(--background);
+    }
+
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .article-card {
+      background: white;
+      border: 1px solid #e2e7ef;
+      border-radius: 10px;
+      padding: 23px;
+    }
+
+    .article-card h3 {
+      color: var(--navy);
+      margin: 8px 0;
+    }
+
+    .article-card p {
+      color: #647087;
+      font-size: 14px;
+    }
+
+    .article-category {
+      color: #98701a;
+      font-weight: bold;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .article-footer {
+      text-align: center;
+      margin-top: 28px;
+      color: #647087;
+      font-size: 13px;
+    }
+
+    .contact-section {
+      background: linear-gradient(135deg, #081426, #173557);
+      color: white;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      font-size: clamp(27px, 4vw, 36px);
+      margin: 8px 0 12px;
+    }
+
+    .contact-section > p:not(.eyebrow) {
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 auto 24px;
+    }
+
+    footer {
+      background: #050d19;
+      color: var(--muted);
+      padding: 25px 7%;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    footer a {
+      color: var(--gold);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin: 15px 0;
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 16px 5%;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 60px 6%;
+      }
+
+      .section {
+        padding: 45px 6%;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <a class="logo" href="index.html">
+      GODSPEED
+      <span>TECHNOLOGIES</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Education navigation">
+      <a href="index.html">Home</a>
+      <a href="#vision">Our Vision</a>
+      <a href="#institute">The Institute</a>
+      <a href="#projects">Innovation</a>
+      <a href="#books">Bookshelf</a>
+      <a href="#articles">Articles</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- EDUCATION HERO -->
+    <section class="hero">
+      <p class="eyebrow">GODSPEED TECHNOLOGIES · EDUCATION</p>
+
+      <h1>Learning by Creating.<br>Growing by Applying.</h1>
+
+      <p>
+        We envision an educational future where knowledge becomes practical
+        ability, creativity becomes innovation, and learning prepares people
+        to solve real problems.
+      </p>
+
+      <div class="hero-actions">
+        <a class="button button-gold" href="#projects">
+          Explore Practical Learning
+        </a>
+
+        <a class="button button-outline" href="#books">
+          Explore Our Bookshelf
+        </a>
+      </div>
+    </section>
+
+    <!-- OUR VISION -->
+    <section class="section" id="vision">
+      <div class="section-heading">
+        <p class="eyebrow">OUR EDUCATIONAL VISION</p>
+        <h2>Education Beyond Memorisation</h2>
+        <p>
+          Building a culture of understanding, experimentation, creativity,
+          integrity, and practical application.
+        </p>
+      </div>
+
+      <div class="vision">
+        <p>
+          GodSpeed Education is a long-term initiative of GodSpeed Technologies
+          focused on learning, skills development, knowledge sharing, and
+          practical innovation.
+        </p>
+
+        <p>
+          We believe education should do more than prepare learners to pass
+          examinations. It should help them understand what they learn, apply
+          it to real situations, create useful solutions, and develop the
+          confidence to pursue meaningful opportunities.
+        </p>
+
+        <p>
+          Our vision is to connect learning with creativity, technical
+          competence, entrepreneurship, and responsible character.
+        </p>
+
+        <p class="promise">
+          Discipline. Patience. Swiftness. Excellence.
+        </p>
+      </div>
+
+      <div class="principles">
+        <article class="principle">
+          <div class="symbol">🧠</div>
+          <h3>Understand</h3>
+          <p>Build real understanding instead of depending only on memorisation.</p>
+        </article>
+
+        <article class="principle">
+          <div class="symbol">🛠️</div>
+          <h3>Apply</h3>
+          <p>Connect classroom concepts to practical tasks and everyday problems.</p>
+        </article>
+
+        <article class="principle">
+          <div class="symbol">💡</div>
+          <h3>Create</h3>
+          <p>Encourage learners to develop original ideas and useful solutions.</p>
+        </article>
+
+        <article class="principle">
+          <div class="symbol">🤝</div>
+          <h3>Build Character</h3>
+          <p>Promote integrity, humility, responsibility, and lifelong learning.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FUTURE INSTITUTE -->
+    <section class="section institute" id="institute">
+      <div class="section-heading">
+        <p class="eyebrow">A FUTURE INSTITUTION</p>
+        <h2>GodSpeed Institute of Technology</h2>
+        <p>
+          A proposed institution built around practical competence,
+          creativity, and learning through application.
+        </p>
+      </div>
+
+      <div class="institute-content">
+        <p class="institute-intro">
+          Our long-term ambition is to establish an institution where learners
+          develop strong technical foundations, work on practical challenges,
+          and gain experience creating solutions that matter to people and
+          communities.
+        </p>
+
+        <div class="institute-grid">
+          <article class="institute-card">
+            <h3>Practical Technical Education</h3>
+            <p>
+              Learning through workshops, laboratories, experiments,
+              demonstrations, and applied technical assignments.
+            </p>
+          </article>
+
+          <article class="institute-card">
+            <h3>Innovation & Research</h3>
+            <p>
+              Encouraging learners to investigate problems, test ideas,
+              improve designs, and develop original solutions.
+            </p>
+          </article>
+
+          <article class="institute-card">
+            <h3>Entrepreneurship</h3>
+            <p>
+              Connecting knowledge to business thinking, product development,
+              and opportunities for self-employment.
+            </p>
+          </article>
+
+          <article class="institute-card">
+            <h3>Industry & Community</h3>
+            <p>
+              Building future opportunities for practical experience,
+              collaboration, mentorship, and community-focused projects.
+            </p>
+          </article>
+        </div>
+
+        <div class="notice">
+          The institute is a future vision and is not yet presented as an
+          operational or accredited institution. Programmes, admissions,
+          and qualifications will be announced when formally established.
+        </div>
+      </div>
+    </section>
+
+    <!-- MINI PROJECTS AND PROTOTYPES -->
+    <section class="section projects" id="projects">
+      <div class="section-heading">
+        <p class="eyebrow">FROM IDEAS TO REALITY</p>
+        <h2>Mini Projects. Real Solutions.</h2>
+        <p>
+          We want learners to move beyond theory by designing, building,
+          testing, and improving practical projects.
+        </p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="symbol">⚡</div>
+          <h3>Electrical & Energy Projects</h3>
+          <p>
+            Explore basic circuits, energy-saving ideas, simple electrical
+            systems, and practical demonstrations of scientific principles.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="symbol">💻</div>
+          <h3>Software & Digital Tools</h3>
+          <p>
+            Develop simple websites, mobile application prototypes, useful
+            digital tools, and solutions to everyday challenges.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="symbol">🤖</div>
+          <h3>Engineering & Prototypes</h3>
+          <p>
+            Turn ideas into models, test designs, document results,
+            identify weaknesses, and improve the final prototype.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="symbol">🌍</div>
+          <h3>Community Problem-Solving</h3>
+          <p>
+            Develop practical ideas addressing local needs in education,
+            transport, agriculture, commerce, and everyday life.
+          </p>
+        </article>
+      </div>
+
+      <p class="project-note">
+        These are examples of the practical learning we envision.
+        Project showcases and learner submissions can be introduced as
+        the programme develops.
+      </p>
+    </section>
+
+ 
+<!-- BOOKSHELF -->
+<section class="section publishing" id="books">
+  <div class="section-heading">
+    <p class="eyebrow">GODSPEED LEARNING & PUBLISHING</p>
+    <h2>Our Bookshelf</h2>
+    <p>
+      Books and ideas for personal growth, career direction,
+      character development, and lifelong learning.
+    </p>
+  </div>
+
+  <div class="book-grid">
+
+    <article class="book-card">
+      <div class="book-cover">
+        <img
+          src="images/career-pathfinder.png"
+          alt="Career Pathfinder book cover"
+          onerror="this.style.display='none'"
+        >
+        <div class="book-cover-fallback">
+          <span class="book-mark">GODSPEED PUBLICATIONS</span>
+          <h3>Career Pathfinder</h3>
+          <p>CAREER · PURPOSE · DIRECTION</p>
+        </div>
+      </div>
+
+      <h3>Career Pathfinder</h3>
+      <p>
+        A featured work by the author. Publication details, a book
+        description, preview, and purchase options will be added.
+      </p>
+
+      <span class="book-status">Publication details coming soon</span>
+
+      <a class="book-button" href="#contact">
+        Buy & Download
+      </a>
+    </article>
+
+    <article class="book-card">
+      <div class="book-cover">
+        <img
+          src="images/true-concept-integrity-humility.png"
+          alt="The True Concept of Integrity and Humility book cover"
+          onerror="this.style.display='none'"
+        >
+        <div class="book-cover-fallback">
+          <span class="book-mark">GODSPEED PUBLICATIONS</span>
+          <h3>The True Concept of Integrity and Humility</h3>
+          <p>CHARACTER · VALUES · GROWTH</p>
+        </div>
+      </div>
+
+      <h3>The True Concept of Integrity and Humility</h3>
+      <p>
+        A featured work exploring integrity and humility. The official
+        description, preview, and purchasing information will be added.
+      </p>
+
+      <span class="book-status">Publication details coming soon</span>
+
+      <a class="book-button" href="#contact">
+        Buy & Download
+      </a>
+    </article>
+
+  </div>
+
+  <p class="publishing-note">
+    Our publishing platform is planned to support book previews,
+    digital publications, articles, and secure purchases as it develops.
+  </p>
+</section>
+
+
+    <!-- ARTICLES -->
+    <section class="section articles" id="articles">
+      <div class="section-heading">
+        <p class="eyebrow">KNOWLEDGE SHARED</p>
+        <h2>Ideas Worth Exploring</h2>
+        <p>
+          A future collection of educational articles, practical guides,
+          and reflections designed to help readers grow.
+        </p>
+      </div>
+
+      <div class="article-grid">
+        <article class="article-card">
+          <span class="article-category">Career Development</span>
+          <h3>Finding Direction in Your Career</h3>
+          <p>
+            Explore the importance of identifying your interests,
+            developing useful skills, and making thoughtful career decisions.
+          </p>
+        </article>
+
+        <article class="article-card">
+          <span class="article-category">Character Development</span>
+          <h3>Integrity and Humility in Everyday Life</h3>
+          <p>
+            Reflect on the role of honesty, accountability, respect,
+            and willingness to learn in personal development.
+          </p>
+        </article>
+
+        <article class="article-card">
+          <span class="article-category">Practical Learning</span>
+          <h3>From Classroom Theory to Practical Skills</h3>
+          <p>
+            Discover why experiments, projects, practice, and learning
+            from mistakes are important parts of understanding.
+          </p>
+        </article>
+
+        <article class="article-card">
+          <span class="article-category">Innovation</span>
+          <h3>Turning an Idea into a Prototype</h3>
+          <p>
+            Learn about the basic process of identifying a problem,
+            planning a solution, building a model, and testing the result.
+          </p>
+        </article>
+      </div>
+
+      <p class="article-footer">
+        Article publishing and full reading pages can be added in a future update.
+      </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact-section" id="contact">
+      <p class="eyebrow">BE PART OF THE VISION</p>
+      <h2>Help Build the Future of Learning</h2>
+
+      <p>
+        Interested in educational collaboration, technical projects,
+        publishing, mentorship, or the future institute? Connect with
+        GodSpeed Technologies.
+      </p>
+
+      <a class="button button-gold" href="contact.html">
+        Contact GodSpeed Technologies
+      </a>
+    </section>
+
+  </main>
+
+  <footer>
+    <p><strong>GodSpeed Technologies</strong></p>
+    <p>Innovating Today. Transforming Tomorrow.</p>
+    <p>Discipline. Patience. Swiftness. Excellence.</p>
+
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="index.html">Main Website</a>
+      <a href="contact.html">Contact</a>
+      <a href="gs-mobility.html">GS Mobility</a>
+    </nav>
+
+    <p>© 2026 GodSpeed Technologies. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

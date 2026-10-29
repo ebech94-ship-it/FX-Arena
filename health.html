@@ -1,0 +1,424 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Health | GodSpeed Technologies</title>
+  <meta name="description" content="Discover GodSpeed Technologies' vision for health education, preventive care, community wellbeing, and improved access to healthcare.">
+
+  <style>
+    :root {
+      --navy: #071a33;
+      --navy-light: #102b4e;
+      --gold: #d6ad50;
+      --white: #ffffff;
+      --light: #f4f6f9;
+      --text: #263449;
+      --muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background: var(--white);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .navbar {
+      background: var(--navy);
+      color: var(--white);
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      color: var(--gold);
+      font-size: 1.15rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      font-size: 0.9rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      color: var(--white);
+      padding: 95px 7%;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      max-width: 850px;
+      margin: 0 auto 20px;
+      font-size: clamp(2.1rem, 5vw, 3.6rem);
+      line-height: 1.2;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 28px;
+      color: #e1e8f1;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 12px 23px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .section {
+      padding: 70px 7%;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      text-align: center;
+      margin: 0 auto 40px;
+    }
+
+    .section-heading h2 {
+      color: var(--navy);
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .vision {
+      background: var(--light);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 27px;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+      border-top: 4px solid var(--gold);
+    }
+
+    .card h3 {
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 25px;
+      align-items: stretch;
+    }
+
+    .approach-card {
+      background: var(--light);
+      padding: 28px;
+      border-radius: 10px;
+    }
+
+    .approach-card h3 {
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .future {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .future h2 {
+      color: var(--gold);
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .future p {
+      max-width: 780px;
+      margin: 0 auto 18px;
+      color: #e1e8f1;
+    }
+
+    .notice {
+      font-size: 0.88rem;
+      color: #cbd5e1 !important;
+    }
+
+    .contact {
+      text-align: center;
+      background: var(--light);
+    }
+
+    .contact h2 {
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .contact p {
+      margin-bottom: 22px;
+    }
+
+    footer {
+      background: #041123;
+      color: #cbd5e1;
+      padding: 25px 7%;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--gold);
+    }
+
+    @media (max-width: 800px) {
+      .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .navbar {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .card-grid,
+      .approach-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 70px 6%;
+      }
+
+      .section {
+        padding: 50px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <a class="brand" href="index.html">GODSPEED TECHNOLOGIES</a>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="education.html">Education</a>
+      <a href="health.html">Health</a>
+      <a href="commerce.html">Commerce</a>
+      <a href="gs-mobility.html">Transportation</a>
+      <a href="index.html#benevolence">Benevolence</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+ <header class="hero">
+  <p class="eyebrow">GODSPEED HEALTH</p>
+  <h1>Advancing Healthcare Through Research, Technology and Innovation</h1>
+  <p>
+    Our vision is to combine medical research, artificial intelligence,
+    modern technology, and responsive healthcare services to support
+    faster access to care, cures, earlier detection of health problems, and
+    better recovery outcomes for our communities.
+  </p>
+  <a class="button" href="#vision">Explore Our Vision</a>
+</header>
+s
+  <!-- VISION -->
+  <section class="section vision" id="vision">
+    <div class="section-heading">
+      <p class="eyebrow">OUR VISION</p>
+      <h2>Health Is More Than Treatment</h2>
+      <p>
+        A healthier society depends on knowledge, prevention,
+        timely care, and the systems that help people protect
+        their wellbeing.
+      </p>
+    </div>
+
+    <div class="card-grid">
+     <article class="card">
+  <h3>Medical Research & Discovery</h3>
+  <p>
+    Explore scientific research, emerging treatments, and evidence-based
+    approaches to understanding diseases, improving treatment methods,
+    and supporting better recovery outcomes.
+  </p>
+</article>
+
+<article class="card">
+  <h3>Artificial Intelligence in Healthcare</h3>
+  <p>
+    Develop and explore responsible AI-powered tools that can assist
+    qualified professionals with medical information analysis,
+    early risk identification, clinical research, and healthcare decisions.
+  </p>
+</article>
+
+<article class="card">
+  <h3>Faster, Responsive Healthcare</h3>
+  <p>
+    Work toward reducing avoidable delays through efficient appointments,
+    digital health systems, coordinated medical services, and timely
+    access to qualified healthcare professionals.
+  </p>
+</article>
+    </div>
+  </section>
+
+  <!-- AREAS OF DEVELOPMENT -->
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">AREAS OF DEVELOPMENT</p>
+      <h2>Where Our Health Vision Can Grow</h2>
+      <p>
+        We aim to explore practical, responsible ways to make
+        healthcare knowledge and support more accessible.
+      </p>
+    </div>
+
+    <div class="approach-grid">
+      <article class="approach-card">
+  <h3>AI-Powered Medical Innovation</h3>
+  <p>
+    Research and develop carefully evaluated AI solutions that support
+    medical professionals in analysing health information, identifying
+    potential risks, and making informed clinical decisions.
+  </p>
+</article>
+
+<article class="approach-card">
+  <h3>Research-Driven Recovery</h3>
+  <p>
+    Explore evidence-based treatments, rehabilitation methods, and
+    personalised care approaches aimed at improving recovery,
+    reducing avoidable complications, and helping patients return
+    to daily life safely.
+  </p>
+</article>
+
+<article class="approach-card">
+  <h3>Rapid Medical Response</h3>
+  <p>
+    Work toward more responsive healthcare through improved patient
+    communication, appointment coordination, emergency referral
+    pathways, and connections with appropriate medical services.
+  </p>
+</article>
+
+<article class="approach-card">
+  <h3>Advanced Medical Research & Technology</h3>
+  <p>
+    Pursue collaborations in medical research, diagnostic technologies,
+    health data systems, and emerging innovations that address real
+    healthcare challenges, particularly across African communities.
+  </p>
+</article>
+    </div>
+  </section>
+
+  <!-- FUTURE PLANS -->
+ <section class="section future">
+  <p class="eyebrow">OUR LONG-TERM COMMITMENT</p>
+  <h2>Research. Innovate. Recover Better.</h2>
+
+  <p>
+    GodSpeed Health aspires to become a healthcare and medical
+    innovation institution where qualified professionals, researchers,
+    engineers, and technology specialists work together to address
+    pressing health challenges.
+  </p>
+
+  <p>
+    Our long-term ambition includes a physical healthcare facility,
+    AI-assisted medical technologies, research partnerships,
+    efficient medical service delivery, and evidence-based approaches
+    that help improve patient recovery and quality of life.
+  </p>
+
+  <p class="notice">
+    These are future ambitions, not currently available medical services.
+    AI will support—not replace—qualified medical professionals.
+    Research and clinical applications will require appropriate
+    scientific validation, ethical oversight, and regulatory approval.
+  </p>
+</section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <h2>Partner With Our Health Vision</h2>
+    <p>
+      Are you a healthcare professional, institution, technology
+      innovator, or organisation interested in community wellbeing?
+    </p>
+    <a class="button" href="index.html#contact">Contact GodSpeed Technologies</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      © 2026 GodSpeed Technologies. All rights reserved.
+      | <a href="index.html">Home</a>
+      | <a href="education.html">Education</a>
+    </p>
+  </footer>
+
+</body>
+</html>

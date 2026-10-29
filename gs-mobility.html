@@ -1,0 +1,522 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>GS Mobility | GodSpeed Technologies</title>
+  <meta name="description" content="Discover GS Mobility, a digital transport network connecting passengers and transport operators across Cameroon.">
+
+  <style>
+    :root {
+      --navy: #081426;
+      --navy-light: #10233d;
+      --gold: #e7c46a;
+      --white: #ffffff;
+      --muted: #b8c3d4;
+      --background: #f4f6fa;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #172238;
+      background: var(--background);
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .navbar {
+      background: var(--navy);
+      color: white;
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      color: white;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      display: block;
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #081426, #173557);
+      color: white;
+      text-align: center;
+      padding: 85px 7%;
+    }
+
+    .hero .eyebrow {
+      color: var(--gold);
+      font-weight: bold;
+      letter-spacing: 3px;
+      font-size: 13px;
+    }
+
+    .hero h1 {
+      max-width: 850px;
+      margin: 15px auto;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.15;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 7px;
+      font-weight: bold;
+      text-align: center;
+      transition: 0.2s;
+    }
+
+    .button-gold {
+      color: var(--navy);
+      background: var(--gold);
+    }
+
+    .button-gold:hover {
+      background: #f4d987;
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      color: white;
+      border: 1px solid var(--gold);
+    }
+
+    .button-outline:hover {
+      background: rgba(231, 196, 106, 0.12);
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .section {
+      padding: 65px 7%;
+    }
+
+    .section-heading {
+      max-width: 750px;
+      margin: 0 auto 35px;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      color: var(--navy);
+      font-size: clamp(27px, 4vw, 38px);
+      margin-bottom: 10px;
+    }
+
+    .section-heading p {
+      color: #647087;
+    }
+
+    .about {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    .about p {
+      margin-bottom: 8px;
+    }
+#about {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+#passengers {
+  padding-top: 15px;
+}
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 27px;
+      border-radius: 12px;
+      border: 1px solid #e2e7ef;
+      box-shadow: 0 6px 22px rgba(8, 20, 38, 0.05);
+    }
+
+    .service-card .number {
+      color: #98701a;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .service-card h3 {
+      color: var(--navy);
+      margin: 9px 0;
+      font-size: 21px;
+    }
+
+    .service-card p {
+      color: #5e697c;
+      margin-bottom: 16px;
+    }
+
+    .service-card ul {
+      padding-left: 20px;
+      color: #465267;
+    }
+
+    .service-card li {
+      margin-bottom: 7px;
+    }
+
+    .operator-section {
+      background: var(--navy);
+      color: white;
+    }
+
+    .operator-section .section-heading h2 {
+      color: white;
+    }
+
+    .operator-section .section-heading p {
+      color: var(--muted);
+    }
+
+    .operator-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+      max-width: 1050px;
+      margin: auto;
+    }
+
+    .operator-card {
+      padding: 27px;
+      border: 1px solid #34455d;
+      border-radius: 12px;
+      background: var(--navy-light);
+    }
+
+    .operator-card h3 {
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .operator-card p {
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+
+    .operator-cta {
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 5px 11px;
+      background: #fff1c8;
+      color: #755512;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 14px;
+    }
+
+    .partner-box {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+      background: white;
+      padding: 35px;
+      border-radius: 12px;
+      border: 1px solid #e2e7ef;
+    }
+
+    .partner-box h2 {
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .partner-box p {
+      color: #647087;
+      margin-bottom: 22px;
+    }
+
+    footer {
+      background: #050d19;
+      color: var(--muted);
+      padding: 25px 7%;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    footer a {
+      color: var(--gold);
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 16px 5%;
+      }
+
+      .nav-links {
+        gap: 13px;
+      }
+
+      .hero {
+        padding: 65px 6%;
+      }
+
+      .section {
+        padding: 48px 6%;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <a class="logo" href="index.html">
+      GODSPEED
+      <span>TECHNOLOGIES</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="#about">About</a>
+      <a href="#passengers">Passengers</a>
+      <a href="#operators">Operators</a>
+      <a href="#partners">Partnerships</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">GODSPEED MOBILITY NETWORK</p>
+      <h1>Connecting People, Transport and Opportunity.</h1>
+      <p>
+        A developing digital mobility network designed to connect passengers
+        with transport agencies while helping operators manage their services
+        through technology.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="button button-gold" href="#passengers">
+          Explore Passenger Services
+        </a>
+        <a class="button button-outline" href="#operators">
+          Join as an Operator
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-heading">
+        <h2>About GS Mobility</h2>
+        <p>Building a connected transport network, starting with intercity mobility in Cameroon.</p>
+      </div>
+
+      <div class="about">
+        <p>
+          GS Mobility is a GodSpeed Technologies Network initiative focused on
+          making passenger transport more accessible and helping transport
+          agencies coordinate their operations through digital tools.
+        </p>
+        <p>
+          Our planned network brings passenger services and operator
+          management together, creating a foundation for a more connected
+          transport experience.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="passengers">
+      <div class="section-heading">
+        <h2>Services for Passengers</h2>
+        <p>Discover the passenger services being developed for the GS Mobility network.</p>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card">
+          <span class="number">01 / DISCOVER</span>
+          <h3>Find Trips</h3>
+          <p>Explore available journeys from your phone in your GS Mobility app and participating transport agencies.</p>
+          <ul>
+            <li>Discover routes and destinations</li>
+            <li>View available trip information</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <span class="number">02 / PLAN</span>
+          <h3>Plan Your Journey</h3>
+          <p>Review trip details to help you plan your travel.</p>
+          <ul>
+            <li>Check departure information</li>
+            <li>Review available fares and seats</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <span class="number">03 / BOOK</span>
+          <h3>Seat Booking</h3>
+          <p>Access digital booking services as the passenger platform becomes available.</p>
+          <ul>
+            <li>Book seats through supported services</li>
+            <li>Access booking confirmations</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <span class="number">04 / MANAGE</span>
+          <h3>Manage Your Trip</h3>
+          <p>Keep your booking details and trip information organised.</p>
+          <ul>
+            <li>Review booking information</li>
+            <li>Follow trip updates where available</li>
+          </ul>
+        </article>
+      </div>
+
+      <div style="text-align:center; margin-top:30px;">
+        <span class="status">Passenger App: Coming Soon</span>
+        <p style="color:#647087; margin-bottom:16px;">
+          Public passenger access will be announced when the app is ready.
+        </p>
+      </div>
+    </section>
+
+    <section class="section operator-section" id="operators">
+      <div class="section-heading">
+        <h2>Join the GS Mobility Network</h2>
+        <p>
+          Are you a transport agency or operator? Explore joining the network
+          and bringing your transport operations into a connected digital system.
+        </p>
+      </div>
+
+      <div class="operator-grid">
+        <article class="operator-card">
+          <h3>Transport Agency Onboarding</h3>
+          <p>
+            Begin the onboarding process to explore participation in the
+            GS Mobility transport network.
+          </p>
+          <a class="button button-gold"
+             href="https://gs-operator.vercel.app"
+             target="_blank"
+             rel="noopener noreferrer">
+            Register Your Transport Agency
+          </a>
+        </article>
+
+        <article class="operator-card">
+          <h3>Manage Your Operations</h3>
+          <p>
+            The operator platform is being developed to support trip
+            organisation, seat availability, booking oversight and agency workflows.
+          </p>
+        </article>
+
+        <article class="operator-card">
+          <h3>Coordinate Your Team</h3>
+          <p>
+            Explore digital tools intended to help participating agencies
+            coordinate staff and manage transport activities.
+          </p>
+        </article>
+      </div>
+
+      <div class="operator-cta">
+        <p style="color:#b8c3d4; margin-bottom:16px;">
+          Ready to explore operator onboarding?
+        </p>
+        <a class="button button-gold"
+           href="https://gs-operator.vercel.app"
+           target="_blank"
+           rel="noopener noreferrer">
+          Visit GS Operator
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="partners">
+      <div class="partner-box">
+        <h2>Partner With GodSpeed Mobility</h2>
+        <p>
+          We welcome discussions with transport agencies and potential partners
+          interested in helping develop a connected mobility network in Cameroon.
+          Contact GodSpeed Technologies Network to discuss collaboration.
+        </p>
+        <a class="button button-gold" href="index.html#contact">
+          Contact GodSpeed
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 GodSpeed Technologies Network. All rights reserved.</p>
+    <p style="margin-top:8px;">
+      <a href="index.html">Return to Main Website</a>
+    </p>
+  </footer>
+
+</body>
+</html>

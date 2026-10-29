@@ -1,0 +1,550 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>GodSpeed Commerce | GodSpeed Technologies</title>
+  <meta name="description" content="GodSpeed Commerce envisions shopping malls, retail stores, wholesale trade, imports, exports, and GodSpeed Market, a digital marketplace connecting farmers, suppliers, and buyers.">
+
+  <style>
+    :root {
+      --navy: #071a33;
+      --navy-light: #102b4e;
+      --gold: #d6ad50;
+      --white: #ffffff;
+      --light: #f4f6f9;
+      --text: #263449;
+      --muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background: var(--white);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .navbar {
+      background: var(--navy);
+      color: var(--white);
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      color: var(--gold);
+      font-size: 1.15rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      font-size: 0.9rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      color: var(--white);
+      padding: 95px 7%;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      max-width: 900px;
+      margin: 0 auto 20px;
+      font-size: clamp(2.1rem, 5vw, 3.6rem);
+      line-height: 1.2;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto 28px;
+      color: #e1e8f1;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 12px 23px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      opacity: 0.9;
+    }
+
+    .section {
+      padding: 70px 7%;
+    }
+
+    .section-heading {
+      max-width: 780px;
+      text-align: center;
+      margin: 0 auto 40px;
+    }
+
+    .section-heading h2 {
+      color: var(--navy);
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .vision {
+      background: var(--light);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 27px;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+      border-top: 4px solid var(--gold);
+    }
+
+    .card h3 {
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .market {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .market .section-heading h2 {
+      color: var(--white);
+    }
+
+    .market .section-heading > p:last-child {
+      color: #d5deea;
+    }
+
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 25px;
+      align-items: stretch;
+    }
+
+    .market-card {
+      background: var(--navy-light);
+      padding: 30px;
+      border-radius: 10px;
+      border: 1px solid #29415f;
+    }
+
+    .market-card h3 {
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .market-card p {
+      color: #e1e8f1;
+      font-size: 0.95rem;
+    }
+
+    .market-name {
+      color: var(--gold);
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .market-note {
+      margin-top: 28px;
+      text-align: center;
+      font-size: 0.88rem;
+      color: #cbd5e1;
+    }
+
+    .trade-list {
+      max-width: 850px;
+      margin: 0 auto;
+      display: grid;
+      gap: 16px;
+    }
+
+    .trade-item {
+      padding: 22px 25px;
+      border-left: 4px solid var(--gold);
+      background: var(--light);
+      border-radius: 5px;
+    }
+
+    .trade-item h3 {
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .trade-item p {
+      color: var(--muted);
+    }
+
+    .future {
+      background: var(--light);
+      text-align: center;
+    }
+
+    .future h2 {
+      color: var(--navy);
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .future p {
+      max-width: 800px;
+      margin: 0 auto 18px;
+    }
+
+    .notice {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact h2 {
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .contact p {
+      max-width: 720px;
+      margin: 0 auto 22px;
+      color: var(--muted);
+    }
+
+    footer {
+      background: #041123;
+      color: #cbd5e1;
+      padding: 25px 7%;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--gold);
+    }
+
+    @media (max-width: 800px) {
+      .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .navbar {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .card-grid,
+      .market-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 70px 6%;
+      }
+
+      .section {
+        padding: 50px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <a class="brand" href="index.html">GODSPEED TECHNOLOGIES</a>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="education.html">Education</a>
+      <a href="health.html">Health</a>
+      <a href="commerce.html">Commerce</a>
+      <a href="gs-mobility.html">Transportation</a>
+      <a href="index.html#benevolence">Benevolence</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <p class="eyebrow">GODSPEED COMMERCE</p>
+    <h1>Connecting Goods, Markets and Opportunities</h1>
+    <p>
+      Our vision is to make everyday goods more accessible by building
+      reliable retail and wholesale businesses, developing shopping
+      centres, and connecting producers, farmers, suppliers, and buyers
+      through technology.
+    </p>
+    <a class="button" href="#vision">Discover Our Vision</a>
+  </header>
+
+  <!-- OUR FOCUS -->
+  <section class="section vision" id="vision">
+    <div class="section-heading">
+      <p class="eyebrow">OUR COMMERCIAL VISION</p>
+      <h2>Practical Commerce. Everyday Needs.</h2>
+      <p>
+        We intend to focus on essential goods, practical trading
+        opportunities, and commercial systems that can grow sustainably
+        from local operations into a wider network.
+      </p>
+    </div>
+
+    <div class="card-grid">
+
+      <article class="card">
+        <h3>Shopping Malls & Retail</h3>
+        <p>
+          Build toward GodSpeed-owned shopping malls, supermarkets,
+          and retail outlets where customers can find everyday
+          necessities and a range of useful consumer goods.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Wholesale & Supply</h3>
+        <p>
+          Supply retailers, shops, institutions, and other businesses
+          with commonly needed goods through organised purchasing,
+          inventory management, and distribution.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Imports & Exports</h3>
+        <p>
+          Explore importing goods that meet local demand and, as
+          capacity develops, exporting suitable locally produced
+          goods to other markets.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- GODSPEED MARKET -->
+  <section class="section market" id="godspeed-market">
+    <div class="section-heading">
+      <p class="eyebrow">COMMERCE MEETS TECHNOLOGY</p>
+      <h2>Introducing the GodSpeed Market Vision</h2>
+      <p>
+        A planned digital marketplace designed to help people discover
+        available goods, connect with buyers and sellers, and better
+        understand what the market needs.
+      </p>
+    </div>
+
+    <div class="market-grid">
+
+      <article class="market-card">
+        <p class="market-name">GodSpeed Market</p>
+        <h3>A Marketplace for Buyers & Sellers</h3>
+        <p>
+          Our proposed platform will help farmers, producers,
+          wholesalers, retailers, and other sellers present their
+          available goods and connect with potential customers.
+        </p>
+      </article>
+
+      <article class="market-card">
+        <h3>Farmers & Agricultural Markets</h3>
+        <p>
+          Help farmers discover potential buyers, communicate
+          available quantities, compare market opportunities, and
+          find demand for their produce before and after harvest.
+        </p>
+      </article>
+
+      <article class="market-card">
+        <h3>Demand & Supply Insights</h3>
+        <p>
+          Work toward displaying commonly traded goods, buyer requests,
+          seller availability, indicative prices, and demand trends
+          to support better-informed trading decisions.
+        </p>
+      </article>
+
+      <article class="market-card">
+        <h3>Find Goods & Business Opportunities</h3>
+        <p>
+          Make it easier for individuals and businesses to discover
+          available products, locate suppliers, publish buying needs,
+          and explore opportunities for bulk purchasing.
+        </p>
+      </article>
+
+    </div>
+
+    <p class="market-note">
+      GodSpeed Market is a planned digital platform. Features and
+      availability will be announced as development progresses.
+    </p>
+  </section>
+
+  <!-- TRADE PRIORITIES -->
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">OUR PRIORITIES</p>
+      <h2>Focused on Goods People Actually Need</h2>
+      <p>
+        Our commercial activities will be guided by practical demand,
+        reliable supply, and opportunities that make sense for the
+        communities and businesses we serve.
+      </p>
+    </div>
+
+    <div class="trade-list">
+
+      <article class="trade-item">
+        <h3>Food & Agricultural Produce</h3>
+        <p>
+          Explore trade in staple foods, farm produce, and other
+          agricultural commodities with established local demand.
+        </p>
+      </article>
+
+      <article class="trade-item">
+        <h3>Household Essentials</h3>
+        <p>
+          Focus on everyday household products and frequently
+          purchased necessities.
+        </p>
+      </article>
+
+      <article class="trade-item">
+        <h3>High-Demand Consumer Goods</h3>
+        <p>
+          Identify products commonly bought and sold in local markets,
+          using customer needs and market information to guide
+          purchasing and stocking decisions.
+        </p>
+      </article>
+
+      <article class="trade-item">
+        <h3>Business-to-Business Trading</h3>
+        <p>
+          Connect suppliers, wholesalers, retailers, and institutional
+          buyers for repeat orders, bulk purchases, and more organised
+          commercial transactions.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- LONG-TERM VISION -->
+  <section class="section future">
+    <p class="eyebrow">OUR LONG-TERM DIRECTION</p>
+    <h2>Start Locally. Build for Wider Markets.</h2>
+
+    <p>
+      GodSpeed Commerce aims to grow through practical commercial
+      operations: serving everyday customers, supplying businesses,
+      strengthening connections between farmers and buyers, and
+      using technology to understand market demand.
+    </p>
+
+    <p>
+      Our long-term ambition is to develop a connected commercial
+      network combining physical retail, wholesale trading, shopping
+      centres, and the GodSpeed Market digital platform.
+    </p>
+
+    <p class="notice">
+      These are our development ambitions. Shopping centres, trading
+      operations, product listings, and digital marketplace services
+      will be introduced as they are established.
+    </p>
+  </section>
+
+  <!-- PARTNERSHIPS -->
+  <section class="section contact" id="contact">
+    <p class="eyebrow">GROW WITH US</p>
+    <h2>Connect With GodSpeed Commerce</h2>
+
+    <p>
+      Are you a farmer, producer, supplier, wholesaler, retailer,
+      or business interested in future trading and marketplace
+      opportunities? We welcome discussions about potential
+      partnerships and collaboration.
+    </p>
+
+    <a class="button" href="index.html#contact">
+      Contact GodSpeed Technologies
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      © 2026 GodSpeed Technologies. All rights reserved.
+      | <a href="index.html">Home</a>
+      | <a href="education.html">Education</a>
+      | <a href="health.html">Health</a>
+    </p>
+  </footer>
+
+</body>
+</html>

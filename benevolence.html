@@ -1,0 +1,506 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GodSpeed Benevolence | God's Hand Reaching Humanity</title>
+<meta name="description" content="GodSpeed Benevolence envisions demonstrating God's love through practical service, compassion, community support, and opportunities for humanity.">
+
+<style>
+:root {
+  --navy: #071a33;
+  --navy-light: #102b4e;
+  --gold: #d9ad45;
+  --white: #ffffff;
+  --muted: #b9c5d5;
+  --background: #f5f7fb;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.7;
+  color: #263449;
+  background: var(--background);
+}
+
+header {
+  background: var(--navy);
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.logo {
+  color: var(--gold);
+  font-size: 21px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+.hero {
+  background:
+    radial-gradient(ellipse at top, #193c63 0%, transparent 65%),
+    linear-gradient(135deg, var(--navy), #041124);
+  color: var(--white);
+  text-align: center;
+  padding: 95px 7%;
+}
+
+.hero .eyebrow {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.hero h1 {
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.2;
+  margin: 20px auto;
+  max-width: 900px;
+}
+
+.hero .scripture {
+  color: var(--gold);
+  font-style: italic;
+  margin: 0 auto 20px;
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 760px;
+  margin: 0 auto 25px;
+}
+
+.button {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.button:hover {
+  background: #f0cf78;
+}
+
+section {
+  padding: 65px 7%;
+}
+
+.section-heading {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 35px;
+}
+
+.section-heading h2 {
+  color: var(--navy);
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.section-heading p {
+  color: #627086;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+.card {
+  background: var(--white);
+  padding: 28px;
+  border-radius: 10px;
+  border-top: 4px solid var(--gold);
+  box-shadow: 0 5px 20px rgba(7, 26, 51, 0.06);
+}
+
+.card .number {
+  color: var(--gold);
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.card h3 {
+  color: var(--navy);
+  margin: 10px 0;
+}
+
+.card p {
+  color: #627086;
+  font-size: 15px;
+}
+
+.faith {
+  background: #fff;
+  text-align: center;
+}
+
+.faith h2 {
+  color: var(--navy);
+  font-size: 30px;
+  margin-bottom: 18px;
+}
+
+.faith .verse {
+  color: #9a741d;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.faith p {
+  max-width: 850px;
+  margin: 0 auto 16px;
+}
+
+.vision {
+  background: var(--navy);
+  color: var(--white);
+  text-align: center;
+}
+
+.vision h2 {
+  color: var(--gold);
+  font-size: 30px;
+  margin-bottom: 18px;
+}
+
+.vision p {
+  max-width: 850px;
+  margin: 0 auto 16px;
+  color: var(--muted);
+}
+
+.note {
+  font-size: 13px;
+  font-style: italic;
+}
+
+.ministry {
+  background: #edf1f7;
+  text-align: center;
+}
+
+.ministry h2 {
+  color: var(--navy);
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.ministry p {
+  max-width: 800px;
+  margin: 0 auto 16px;
+  color: #627086;
+}
+
+.ministry-name {
+  color: #9a741d;
+  font-size: 26px;
+  font-weight: bold;
+  margin: 18px 0;
+}
+
+.cta {
+  text-align: center;
+}
+
+.cta h2 {
+  color: var(--navy);
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.cta p {
+  max-width: 700px;
+  margin: 0 auto 25px;
+  color: #627086;
+}
+
+footer {
+  background: #041124;
+  color: var(--muted);
+  text-align: center;
+  padding: 25px 7%;
+  font-size: 13px;
+}
+
+footer a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 18px 5%;
+  }
+
+  nav {
+    gap: 12px;
+  }
+
+  .hero {
+    padding: 70px 6%;
+  }
+
+  section {
+    padding: 48px 6%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="index.html">GODSPEED TECHNOLOGIES</a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="education.html">Education</a>
+    <a href="health.html">Health</a>
+    <a href="commerce.html">Commerce</a>
+    <a href="gs-mobility.html">Transportation</a>
+    <a href="benevolence.html">Benevolence</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <p class="eyebrow">Faith • Compassion • Service</p>
+
+    <h1>God's Hand Reaching Humanity</h1>
+
+    <p class="scripture">
+      "For we are labourers together with God." — 1 Corinthians 3:9
+    </p>
+
+    <p>
+      We envision a world where the love of God is not only spoken about,
+      but demonstrated through willing hands, compassionate hearts,
+      practical assistance, and service to humanity.
+    </p>
+
+    <a class="button" href="#our-vision">Discover Our Mandate</a>
+  </section>
+
+  <section class="faith">
+    <h2>Faith Expressed Through Service</h2>
+
+    <p class="verse">
+      "Let us not love in word, neither in tongue; but in deed and in truth."
+      — 1 John 3:18
+    </p>
+
+    <p>
+      GodSpeed Benevolence is founded on the vision that compassion must
+      become action. We seek to express the love and goodness of God by
+      serving people, responding to genuine needs, restoring dignity,
+      and helping communities discover new possibilities.
+    </p>
+
+    <p>
+      Our inspiration is spiritual, but our service is practical:
+      helping where help is needed, creating opportunities where
+      opportunities are limited, and treating every person with dignity.
+    </p>
+  </section>
+
+  <section id="our-vision">
+    <div class="section-heading">
+      <h2>Where Compassion Meets Action</h2>
+      <p>
+        Our vision is to develop practical initiatives that reflect
+        God's love while addressing real human and community needs.
+      </p>
+    </div>
+
+    <div class="cards">
+
+      <article class="card">
+        <div class="number">01</div>
+        <h3>Reaching the Vulnerable</h3>
+        <p>
+          Work towards assisting vulnerable families, children, and
+          individuals facing hardship or limited access to essential needs.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="number">02</div>
+        <h3>Education & Opportunity</h3>
+        <p>
+          Explore educational assistance, mentorship, learning resources,
+          and opportunities that empower young people to build their future.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="number">03</div>
+        <h3>Health & Wellbeing</h3>
+        <p>
+          Pursue suitable partnerships and community initiatives that
+          support wellbeing and improve access to essential services.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="number">04</div>
+        <h3>Hope & Restoration</h3>
+        <p>
+          Encourage practical support, dignity, and renewed opportunity
+          for people and communities experiencing difficult circumstances.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="vision">
+    <h2>More Than Charity. A Demonstration of Love.</h2>
+
+    <p>
+      We believe that faith should inspire responsibility, generosity,
+      integrity, and service. Benevolence is an opportunity to let
+      spiritual conviction produce practical good in the lives of people.
+    </p>
+
+    <p>
+      Through responsible partnerships, available resources, and future
+      community initiatives, we envision becoming a channel through which
+      help reaches those who need it.
+    </p>
+
+    <p>
+      This vision forms part of the wider GodSpeed Technologies commitment
+      to human progress through technology, education, health, commerce,
+      transportation, and compassionate service.
+    </p>
+
+    <p class="note">
+      These are future ambitions, not a claim that programmes or funding
+      are already operational.
+    </p>
+  </section>
+
+  <section class="ministry">
+    <h2>A Spiritual Vision Taking Shape</h2>
+
+    <p>
+      Alongside this commitment to service, a distinct Christian ministry
+      vision is taking shape under the proposed name:
+    </p>
+
+    <div class="ministry-name">Sons of God Embassy</div>
+
+    <p>
+      The name expresses a desire to see people understand their identity
+      and responsibility before God and live out their faith with purpose.
+      The ministry's doctrine, leadership, activities, and formal identity
+      will be developed and established separately.
+    </p>
+
+    <p class="note">
+      Sons of God Embassy is currently a proposed ministry name, not a
+      representation that a formally established denomination already exists.
+    </p>
+  </section>
+
+  <section>
+    <div class="section-heading">
+      <h2>Serving With Integrity</h2>
+      <p>
+        Compassion must be accompanied by responsibility, transparency,
+        and respect for human dignity.
+      </p>
+    </div>
+
+    <div class="cards">
+
+      <article class="card">
+        <h3>Listen First</h3>
+        <p>
+          Understand genuine community needs before planning assistance
+          or launching initiatives.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Work Together</h3>
+        <p>
+          Build responsible partnerships with people and organisations
+          willing to contribute their skills, time, and resources.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Act Transparently</h3>
+        <p>
+          Work towards accountable resource management and clear reporting
+          for any programmes established.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Let Compassion Become Action</h2>
+
+    <p>
+      We welcome conversations with potential partners and supporters
+      who share a desire to serve people, strengthen communities,
+      and contribute to meaningful human progress.
+    </p>
+
+    <a class="button" href="index.html#contact">
+      Connect With GodSpeed
+    </a>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 GodSpeed Technologies. All rights reserved.</p>
+  <p><a href="index.html">Return to the main website</a></p>
+</footer>
+
+</body>
+</html>
