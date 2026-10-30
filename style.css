@@ -1156,3 +1156,10 @@ section {
     animation: none;
   }
 }
+.download-size {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 4px;
+  opacity: 0.85;
+}
