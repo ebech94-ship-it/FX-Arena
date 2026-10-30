@@ -498,14 +498,15 @@
       localStorage.setItem("inviteRef", ref);
     }
 
-    // Preserve the existing APK download URL.
-    window.downloadApp = function(button) {
-      const url = "https://firebasestorage.googleapis.com/v0/b/forex-tournaments-arena.firebasestorage.app/o/FX%20AMoney.apk?alt=media&token=75390242-374a-4dc7-8bd7-3652804ca205";
 
-      setTimeout(() => {
-        window.location.href = url;
-      }, 300);
-    };
+   // FX ARENA MONEY APK DOWNLOAD
+window.downloadApp = function(button) {
+  const url = "https://firebasestorage.googleapis.com/v0/b/forex-tournaments-arena.firebasestorage.app/o/FX-A%20Money.apk?alt=media&token=ccdbfa78-2c0d-4e7a-bbd7-60d3b6d5d1e6";
+
+  setTimeout(() => {
+    window.location.href = url;
+  }, 300);
+};
   </script>
 
   <script type="module" src="app.js"></script>
