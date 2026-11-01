@@ -18,6 +18,7 @@ import {
 ========================= */
 const liveList = document.getElementById("live-list");
 const leaderboardList = document.getElementById("leaderboard-list");
+const upcomingList = document.getElementById("upcoming-list");
 const rewardsList = document.getElementById("rewards-list");
 
 const tournamentsRef = collection(db, "tournaments");
@@ -65,9 +66,80 @@ function formatTime(ms) {
   return `${s}s`;
 }
 
-/* =========================
-   1. FIRESTORE LISTENER (DATA ONLY)
-========================= */
+function formatDuration(minutes) {
+  if (!Number.isFinite(minutes) || minutes <= 0) return "0 minutes";
+
+  const months = Math.floor(minutes / 43200);
+  const weeks = Math.floor((minutes % 43200) / 10080);
+  const days = Math.floor((minutes % 10080) / 1440);
+  const hours = Math.floor((minutes % 1440) / 60);
+  const mins = minutes % 60;
+
+  const parts = [];
+
+  if (months) parts.push(`${months} month${months > 1 ? "s" : ""}`);
+  if (weeks) parts.push(`${weeks} week${weeks > 1 ? "s" : ""}`);
+  if (days) parts.push(`${days} day${days > 1 ? "s" : ""}`);
+  if (hours) parts.push(`${hours} hour${hours > 1 ? "s" : ""}`);
+  if (mins) parts.push(`${mins} minute${mins > 1 ? "s" : ""}`);
+
+  return parts.join(" ");
+}
+function getTournamentStatus(startTime, endTime) {
+  const start = startTime?.toMillis?.() ?? Number(startTime);
+  const end = endTime?.toMillis?.() ?? Number(endTime);
+  const now = Date.now();
+
+  if (!Number.isFinite(start) || !Number.isFinite(end)) {
+    return { text: "UNKNOWN", color: "#94a3b8" };
+  }
+
+  if (now < start) {
+    return { text: "🟡 UPCOMING", color: "#facc15" };
+  }
+
+  if (now < end) {
+    return { text: "🔴 ONGOING", color: "#22c55e" };
+  }
+
+  return { text: "⚫ FINISHED", color: "#9ca3af" };
+}
+
+function tournamentStatusBadge(t) {
+  const start = t.startTime?.toMillis?.() ?? Number(t.startTime);
+  const end = t.endTime?.toMillis?.() ?? Number(t.endTime);
+  const status = getTournamentStatus(start, end);
+
+  return `
+    <span
+      class="tournament-status-badge"
+      data-start="${start}"
+      data-end="${end}"
+      style="
+        display:inline-block;
+        padding:5px 10px;
+        border-radius:20px;
+        background:#1e293b;
+        color:${status.color};
+        font-size:11px;
+        font-weight:800;
+        white-space:nowrap;
+      "
+    >${status.text}</span>
+  `;
+}
+
+setInterval(() => {
+  document.querySelectorAll(".tournament-status-badge").forEach(badge => {
+    const status = getTournamentStatus(
+      Number(badge.dataset.start),
+      Number(badge.dataset.end)
+    );
+
+    badge.textContent = status.text;
+    badge.style.color = status.color;
+  });
+}, 1000);
 /* =========================
    1. FIRESTORE LISTENER (DATA ONLY)
 ========================= */
@@ -112,108 +184,149 @@ if (tournamentElement) {
   renderHome();
 updateStats(snap);
 });
+
 /* =========================
    2. REAL LIVE UI RENDER LOOP (EVERY 1s)
 ========================= */
+/* =========================
+   2. LIVE + UPCOMING TOURNAMENTS
+========================= */
+
+
+/* =========================
+   2. LIVE + UPCOMING TOURNAMENTS
+========================= */
+
+
 setInterval(() => {
   const now = Date.now();
+
   let liveHTML = "";
+  let upcomingHTML = "";
+  let liveCount = 0;
+  let upcomingCount = 0;
 
   tournamentsCache.forEach((t) => {
-    if (!t.startTime || !t.endTime) return;
 
-    const start = t.startTime?.toMillis?.() ?? t.startTime;
-const end = t.endTime?.toMillis?.() ?? t.endTime;
+    // Support both Firestore Timestamps and numeric timestamps
+    const start = t.startTime?.toMillis?.() ?? Number(t.startTime);
+    const end = t.endTime?.toMillis?.() ?? Number(t.endTime);
 
-const isLive = now >= start && now <= end;
+    if (!Number.isFinite(start) || !Number.isFinite(end)) return;
+
+    const isLive = now >= start && now < end;
     const isUpcoming = now < start;
-    const isEnded = now > end;
+    const isEnded = now >= end;
 
-    let status = "";
-    let statusColor = "";
+    if (isEnded) return;
 
-    if (isLive) {
-      status = "🔴 LIVE";
-      statusColor = "#22c55e";
-    } else if (isUpcoming) {
-      status = "🟡 UPCOMING";
-      statusColor = "#facc15";
-    } else {
-      status = "⚫ ENDED";
-      statusColor = "#6b7280";
-    }
+    const countdown = isLive
+      ? `Ends in: ${formatTime(end - now)}`
+      : `Starts in: ${formatTime(start - now)}`;
 
-   const countdown = isLive
-  ? `Ends in: ${formatTime(end - now)}`
-  : isUpcoming
-  ? `Starts in: ${formatTime(start - now)}`
-  : "Finished";
+    const duration = Number(t.durationMinutes ?? 0);
+    const rebuyFee = Number(t.rebuyFee ?? 0);
+    const entryFee = Number(t.entryFee ?? 0);
+    const startingBalance = Number(t.startingBalance ?? 0);
 
-    if (isLive) {
-      liveHTML += `
-        <div style="
-          background:#0f172a;
-          padding:14px;
-          margin:10px 0;
-          border-radius:14px;
-          border:1px solid #1f2937;
-          box-shadow:0 0 10px rgba(34,197,94,0.15);
-        ">
+    const prizePool = t.prizeModel === "dynamic"
+      ? Number(t.collectedFunds ?? 0)
+      : Number(t.prizePool ?? 0);
 
-          <!-- HEADER -->
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <h3 style="color:#fff;margin:0;font-size:16px;">
-              ${t.name}
-            </h3>
+    const tournamentInfo = `
+      <div style="margin-top:12px;color:#cbd5e1;font-size:13px;">
+        <p>📅 Start: ${new Date(start).toLocaleString()}</p>
+        <p>🏁 End: ${new Date(end).toLocaleString()}</p>
+        <p>⏱ Duration: ${formatDuration(duration)}</p>
+        <p>🎟️ Entry Fee: $${entryFee.toFixed(2)}</p>
+        <p>🔁 Rebuy Fee: $${rebuyFee.toFixed(2)}</p>
+        <p>💼 Starting Balance: $${startingBalance.toFixed(2)}</p>
+        <p>👥 Participants: ${t.participantsCount ?? 0}</p>
+      </div>
+    `;
 
-            <span style="color:${statusColor};font-weight:700;">
-              ${status}
-            </span>
-          </div>
-
-          <!-- PRIZE POOL -->
-          <div style="
-            margin-top:8px;
-            font-size:18px;
-            font-weight:800;
-            color:#22c55e;
-          ">
-            💰 Prize Pool: ${
-    t.prizeModel === "dynamic"
-        ? Number(t.collectedFunds ?? 0).toFixed(2)
-        : Number(t.prizePool ?? 0).toFixed(2)
-}$ 
-          </div>
-
-          <!-- INFO -->
-          <div style="margin-top:10px;color:#94a3b8;font-size:13px;">
-            <p style="margin:4px 0;">👥 Participants: ${t.participantsCount ?? 0}</p>
-            <p style="margin:4px 0;">♻️ Rebuys: ${t.rebuyCount ?? 0}</p>
-
-            <p style="margin:4px 0;color:#facc15;font-weight:700;">
-              ⏱ ${countdown}
-            </p>
-
-            <p style="margin:4px 0;">
-              🚀 Start: ${new Date(t.startTime).toLocaleString()}
-            </p>
-
-            <p style="margin:4px 0;">
-              🏁 End: ${new Date(t.endTime).toLocaleString()}
-            </p>
-          </div>
-
+    const card = `
+      <div class="public-tournament-card ${isLive ? "live-tournament-card" : "upcoming-tournament-card"}">
+        <div class="public-tournament-heading">
+          <h3>${t.name || "FX ARENA Tournament"}</h3>
+          <span class="${isLive ? "public-tournament-live" : "public-tournament-upcoming"}">
+            ${isLive ? "🔴 LIVE" : "🟡 UPCOMING"}
+          </span>
         </div>
-      `;
+
+        <div class="public-tournament-prize">
+          🏆 ${t.prizeModel === "dynamic" ? "Generated Prize Pool" : "Prize Pool"}: $${prizePool.toFixed(2)}
+        </div>
+
+        ${tournamentInfo}
+
+        <div class="public-tournament-countdown">
+          ⏱ ${countdown}
+        </div>
+
+        ${isUpcoming ? `
+          <div class="upcoming-notice">
+            Get ready! This tournament is coming soon.
+            Download FX ARENA and prepare to participate.
+          </div>
+        ` : ""}
+      </div>
+    `;
+
+    if (isLive) {
+      liveCount++;
+      liveHTML += card;
+    } else if (isUpcoming) {
+      upcomingCount++;
+      upcomingHTML += card;
     }
   });
 
-  liveList.innerHTML = liveHTML || `
-    <div style="color:#94a3b8;padding:10px;">
-      No live tournaments right now
-    </div>
-  `;
+  // Render live tournaments
+  if (liveList) {
+    liveList.innerHTML = liveHTML || `
+      <div class="empty-tournament-message">
+        No live tournaments right now.
+      </div>
+    `;
+  }
+
+  // Render upcoming tournaments
+  if (upcomingList) {
+    upcomingList.innerHTML = upcomingHTML || `
+      <div class="empty-tournament-message">
+        No upcoming tournaments at the moment.
+      </div>
+    `;
+  }
+
+  // UPDATE LIVE COUNTS
+  const liveCountElement = document.getElementById("live-tournament-count");
+  const liveMarqueeElement = document.getElementById("live-tournament-count-marquee");
+
+  if (liveCountElement) {
+    liveCountElement.textContent = liveCount;
+  }
+
+  if (liveMarqueeElement) {
+    liveMarqueeElement.textContent = liveCount;
+  }
+
+  // UPDATE UPCOMING COUNTS
+  const upcomingCountElement = document.getElementById("upcoming-tournament-count");
+  const upcomingMarqueeElement = document.getElementById("upcoming-tournament-count-marquee");
+
+  if (upcomingCountElement) {
+    upcomingCountElement.textContent = upcomingCount;
+  }
+
+  if (upcomingMarqueeElement) {
+    upcomingMarqueeElement.textContent = upcomingCount;
+  }
+
 }, 1000);
+
+
 
 /* =========================
    LEADERBOARD (TRUE LIVE ORDERING)
@@ -266,7 +379,18 @@ snap.forEach((tournamentDoc) => {
       // RENDER FRESH EACH TIME
       document.getElementById(containerId).innerHTML = `
   <div style="background:#0f172a; margin:10px 0; padding:14px; border-radius:12px; border:1px solid #1f2937;">
-    <h3 style="color:#facc15;margin:0;">🏆 ${t.name}</h3>
+    <div style="
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:12px;
+">
+  <h3 style="color:#facc15;margin:0;">🏆 ${t.name}</h3>
+
+  ${tournamentStatusBadge(t)}
+</div>
 
   <div style="
 display:flex;
@@ -320,7 +444,7 @@ border-bottom:1px solid #1f2937;
     color:${u.performance >= 0 ? "#22c55e" : "#ef4444"};
     font-weight:700;
   ">
-   ${u.performance >= 0 ? "+" : ""}${u.performance.toFixed(2)}T
+   ${u.performance >= 0 ? "+" : ""}${u.performance.toFixed(2)}$
   </span>
 
 </div>
@@ -354,13 +478,24 @@ onSnapshot(tournamentsRef, (snap) => {
           border:1px solid #1f2937;
         ">
 
-          <h3 style="
-            color:#facc15;
-            margin-bottom:10px;
-            font-size:16px;
-          ">
-            ${t.name}
-          </h3>
+         <div style="
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:12px;
+">
+  <h3 style="
+    color:#facc15;
+    margin:0;
+    font-size:16px;
+  ">
+    🏆 ${t.name}
+  </h3>
+
+  ${tournamentStatusBadge(t)}
+</div>
 
           <!-- TABLE HEADER -->
           <div style="
@@ -373,8 +508,8 @@ onSnapshot(tournamentsRef, (snap) => {
             font-size:13px;
             font-weight:600;
           ">
-            <span>Rank</span>
-            <span>Reward ($)</span>
+            <span>🥇Ranks</span>
+            <span>🏆 Prize Distribution ($)</span>
           </div>
 
           <!-- TABLE ROWS -->
@@ -629,7 +764,8 @@ async function trackOnlineUsers(){
 
       // active within last 60 seconds
       if(
-        now - data.lastSeen < 180000
+        data.active === true &&
+  now - data.lastSeen < 60000
       ){
         online++;
       }
@@ -677,3 +813,170 @@ window.trackDownload = async function(){
  });
 
 };
+/* =========================================
+   GODSPEED TECHNOLOGIES WEBSITE ENGAGEMENT
+========================================= */
+
+// WEBSITE VIEWS
+function trackWebsiteViews() {
+  const viewRef = doc(db, "websiteStats", "views");
+
+  if (!sessionStorage.getItem("gsWebsiteViewed")) {
+    setDoc(viewRef, {
+      count: increment(1)
+    }, { merge: true })
+      .then(() => sessionStorage.setItem("gsWebsiteViewed", "true"))
+      .catch(error => console.error("Website view tracking failed:", error));
+  }
+
+  onSnapshot(viewRef, snap => {
+    const el = document.getElementById("website-view-count");
+    if (el) {
+      el.textContent = (snap.data()?.count || 0).toLocaleString();
+    }
+  });
+}
+
+
+// WEBSITE LIKES
+function trackWebsiteLikes() {
+  const likesRef = doc(db, "websiteStats", "likes");
+
+  onSnapshot(likesRef, snap => {
+    const el = document.getElementById("website-like-count");
+    if (el) {
+      el.textContent = (snap.data()?.count || 0).toLocaleString();
+    }
+  });
+}
+
+window.likeWebsite = async function() {
+  const likeKey = "gsWebsiteLiked";
+
+  if (localStorage.getItem(likeKey)) {
+    alert("You have already liked our website. Thank you!");
+    return;
+  }
+
+  const likesRef = doc(db, "websiteStats", "likes");
+
+  try {
+    await setDoc(likesRef, {
+      count: increment(1)
+    }, { merge: true });
+
+    localStorage.setItem(likeKey, "true");
+  } catch (error) {
+    console.error("Like failed:", error);
+    alert("Could not register your like. Please try again.");
+  }
+};
+
+
+// WEBSITE SHARING
+window.shareWebsite = async function() {
+  const shareData = {
+    title: "GodSpeed Technologies",
+    text: "Discover GodSpeed Technologies — Innovating Today. Transforming Tomorrow.",
+    url: "https://www.republic.beauty/"
+  };
+
+  try {
+    if (navigator.share) {
+      await navigator.share(shareData);
+    } else {
+      await navigator.clipboard.writeText(shareData.url);
+      alert("Website link copied. Share it with others!");
+    }
+  } catch (error) {
+    if (error.name !== "AbortError") {
+      console.error("Sharing failed:", error);
+      alert("Could not share the website. Please copy the website link.");
+    }
+  }
+};
+
+
+// WEBSITE COMMENTS
+function loadWebsiteComments() {
+  const commentsRef = collection(db, "websiteComments");
+
+  onSnapshot(commentsRef, snap => {
+    const container = document.getElementById("website-comment-list");
+    if (!container) return;
+
+    container.replaceChildren();
+
+    const comments = snap.docs
+      .map(item => item.data())
+      .sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0))
+      .slice(0, 30);
+
+    if (comments.length === 0) {
+      container.textContent = "Be the first to share your thoughts.";
+      return;
+    }
+
+    comments.forEach(comment => {
+      const card = document.createElement("div");
+      const name = document.createElement("strong");
+      const message = document.createElement("p");
+
+      name.textContent = comment.name || "Visitor";
+      message.textContent = comment.message || "";
+
+      card.append(name, message);
+      container.appendChild(card);
+    });
+  }, error => {
+    console.error("Could not load comments:", error);
+  });
+}
+
+window.submitWebsiteComment = async function() {
+  const nameInput = document.getElementById("comment-name");
+  const messageInput = document.getElementById("comment-message");
+
+  const name = nameInput.value.trim();
+  const message = messageInput.value.trim();
+
+  if (!name || !message) {
+    alert("Please enter your name and comment.");
+    return;
+  }
+
+  if (name.length > 40 || message.length > 500) {
+    alert("Your comment is too long.");
+    return;
+  }
+
+  try {
+    const commentRef = doc(
+      db,
+      "websiteComments",
+      crypto.randomUUID()
+    );
+
+    await setDoc(commentRef, {
+      name,
+      message,
+      createdAt: Date.now()
+    });
+
+    nameInput.value = "";
+    messageInput.value = "";
+
+    alert("Your comment has been posted. Thank you!");
+  } catch (error) {
+    console.error("Comment submission failed:", error);
+    alert("Could not post your comment. Please try again.");
+  }
+};
+
+
+// START WEBSITE ENGAGEMENT
+window.addEventListener("DOMContentLoaded", () => {
+  trackWebsiteViews();
+  trackWebsiteLikes();
+  loadWebsiteComments();
+});

@@ -90,6 +90,9 @@
         <div class="hero-actions">
           <a class="download-main" href="#products">Explore Our Products</a>
           <a class="hero-secondary" href="#about">Discover Our Mission</a>
+          <button class="nav-work-button" type="button" onclick="openWorkPopup()">
+  Work With Us
+</button>
         </div>
       </div>
 
@@ -121,7 +124,30 @@
         Discipline. Patience. Swiftness. Excellence.
       </p>
     </section>
+<!-- GODSPEED TECHNOLOGIES WEBSITE ENGAGEMENT -->
+<section class="website-engagement" id="website-engagement">
+  <p class="eyebrow">OUR GROWING REACH</p>
+  <h2>Growing Together</h2>
+  <p>Every visit, connection and shared idea helps us grow.</p>
 
+  <div class="engagement-actions">
+
+    <div class="engagement-stat">
+      <h3 id="website-view-count">0</h3>
+      <p>Website Visits</p>
+    </div>
+
+    <button type="button" id="website-like-button"
+      onclick="likeWebsite()">
+      ❤️ <span id="website-like-count">0</span> Likes
+    </button>
+
+    <button type="button" onclick="shareWebsite()">
+      ↗ Share Website
+    </button>
+
+  </div>
+</section>
     <!-- SIX CORE SECTORS -->
     <section class="network-sectors" id="sectors">
       <div class="section-heading">
@@ -229,34 +255,60 @@
             trading strategies, compete, and develop their skills.
           </p>
 
-         <a class="product-button"
+       <a class="product-button"
    href="javascript:void(0)"
-   onclick="trackDownload(); downloadApp(this)">
+   onclick="showDownloadGuide()">
   Download FX ARENA
   <span class="download-size">APK · 114.00 MB</span>
 </a>
 
           <!-- Existing FX ARENA media, retained for the product gallery -->
-          <div class="product-gallery" aria-label="FX ARENA app previews">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="images/video0.mp4" type="video/mp4">
-            </video>
-            <img src="images/screenshot-1.png" alt="FX ARENA app preview" loading="lazy">
+        <!-- FX ARENA AUTO-SLIDESHOW -->
+<div class="mobility-slideshow" aria-label="FX ARENA app previews">
+  <div class="mobility-slides">
 
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="images/video1.mp4" type="video/mp4">
-            </video>
-          
-            <img src="images/screenshot-3.png" alt="FX ARENA interface preview" loading="lazy">
+    <figure>
+      <video autoplay muted loop playsinline preload="metadata">
+        <source src="images/video0.mp4" type="video/mp4">
+      </video>
+      <figcaption>FX ARENA Tournaments</figcaption>
+    </figure>
 
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="images/video3.mp4" type="video/mp4">
-            </video>
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="images/video4.mp4" type="video/mp4">
-            </video>
-           
-          </div>
+    <figure>
+      <img src="images/screenshot-1.png" alt="FX ARENA app preview" loading="lazy">
+      <figcaption>App Connecting</figcaption>
+    </figure>
+
+    <figure>
+      <video autoplay muted loop playsinline preload="metadata">
+        <source src="images/video1.mp4" type="video/mp4">
+      </video>
+      <figcaption>App Interface</figcaption>
+    </figure>
+
+    <figure>
+      <video autoplay muted loop playsinline preload="metadata">
+  <source src="images/video.mp4" type="video/mp4">
+</video>
+      <figcaption>Trading Experience</figcaption>
+    </figure>
+
+    <figure>
+      <video autoplay muted loop playsinline preload="metadata">
+        <source src="images/video3.mp4" type="video/mp4">
+      </video>
+      <figcaption>Platform in Action</figcaption>
+    </figure>
+
+    <figure>
+      <video autoplay muted loop playsinline preload="metadata">
+        <source src="images/video4.mp4" type="video/mp4">
+      </video>
+      <figcaption>More FX ARENA Features</figcaption>
+    </figure>
+
+  </div>
+</div>
         </article>
 
        
@@ -397,11 +449,34 @@
         <p>Explore live tournaments, Traders rankings, and rewards.</p>
       </div>
 
-      <div class="arena-actions">
-        <button type="button" onclick="openTab('live')">🔴 Live Tournaments</button>
-        <button type="button" onclick="openTab('rank')">📊 Leaderboard</button>
-        <button type="button" onclick="openTab('rewards')">🏆 Rewards</button>
-      </div>
+  <div class="arena-actions">
+  <button type="button" onclick="openTab('live')">
+    🔴 Live Tournaments <span id="live-tournament-count">0</span>
+  </button>
+
+  <button type="button" class="upcoming-tournament-btn"
+    onclick="openTab('upcoming')">
+    🟡 Upcoming <span id="upcoming-tournament-count">0</span>
+  </button>
+
+  <button type="button" onclick="openTab('rank')">
+    📊 Leaderboard
+  </button>
+
+  <button type="button" onclick="openTab('rewards')">
+    🏆 Rewards
+  </button>
+</div>
+
+<!-- TOURNAMENT ATTENTION MARQUEE -->
+<div class="tournament-marquee">
+  <div class="tournament-marquee-text">
+    🔴 <span id="live-tournament-count-marquee">0</span> LIVE TOURNAMENTS
+    &nbsp; • &nbsp;
+    🟡 <span id="upcoming-tournament-count-marquee">0</span> UPCOMING TOURNAMENTS
+    &nbsp; • &nbsp;
+  </div>
+</div>
     </section>
 
     <!-- CONTACT -->
@@ -414,7 +489,33 @@
       </p>
       <a class="download-main" href="contact.html">Contact Us</a>
     </section>
+<!-- GODSPEED TECHNOLOGIES COMMUNITY COMMENTS -->
+<section class="website-comments" id="website-comments">
+  <p class="eyebrow">JOIN THE CONVERSATION</p>
+  <h2>Share Your Thoughts</h2>
+  <p>Have an idea, suggestion or message for GodSpeed Technologies?</p>
 
+  <div class="comment-form">
+    <input
+      type="text"
+      id="comment-name"
+      placeholder="Your name"
+      maxlength="40"
+    >
+
+    <textarea
+      id="comment-message"
+      placeholder="Write your comment..."
+      maxlength="500"
+    ></textarea>
+
+    <button type="button" onclick="submitWebsiteComment()">
+      Post Comment
+    </button>
+  </div>
+
+  <div id="website-comment-list"></div>
+</section>
   </main>
 
   <!-- CORPORATE FOOTER -->
@@ -464,7 +565,9 @@
       <div id="live-tab" class="tab-page" style="display:none;">
         <div id="live-list"></div>
       </div>
-
+<div id="upcoming-tab" class="tab-page" style="display:none;">
+  <div id="upcoming-list"></div>
+</div>
       <div id="rewards-tab" class="tab-page" style="display:none;">
         <div id="rewards-list"></div>
       </div>
@@ -472,6 +575,24 @@
   </div>
 
   <script>
+
+  function openWorkPopup() {
+  document.getElementById("work-popup").style.display = "flex";
+}
+
+function closeWorkPopup() {
+  document.getElementById("work-popup").style.display = "none";
+}
+
+ function showDownloadGuide() {
+  document.getElementById("download-guide").style.display = "flex";
+}
+
+function closeDownloadGuide() {
+  document.getElementById("download-guide").style.display = "none";
+  downloadApp();
+}
+
     function toggleMenu() {
       document.getElementById("sidebar").classList.toggle("show");
       document.getElementById("overlay").classList.toggle("show");
@@ -492,6 +613,7 @@
         home: ["🏠 FX ARENA", "home-tab"],
         rank: ["📊 Leaderboard", "rank-tab"],
         live: ["🔴 Live Tournaments", "live-tab"],
+        upcoming: ["🟡 Upcoming Tournaments", "upcoming-tab"],
         rewards: ["🏆 Rewards", "rewards-tab"]
       };
 
@@ -521,5 +643,89 @@ window.downloadApp = function(button) {
   </script>
 
   <script type="module" src="app.js"></script>
+  <!-- FX ARENA DOWNLOAD GUIDE -->
+<div id="download-guide" class="download-guide-overlay">
+  <div class="download-guide-popup">
+
+    <button class="download-guide-close"
+        onclick="document.getElementById('download-guide').style.display='none'">
+  &times;
+</button>
+    <div class="download-guide-icon">🛡️</div>
+
+    <h2>A quick guide before you install</h2>
+
+    <p>
+      FX ARENA is distributed directly through our official website,
+      rather than Google Play.
+    </p>
+
+    <h3>1. Android may display a security warning</h3>
+
+    <p>
+      Your phone may display a warning that the app could be harmful
+      because it is being downloaded outside Google Play.
+      This is a security precaution for apps from sources other than
+      the Play Store.
+    </p>
+
+  <p class="download-guide-note">
+  FX ARENA is an official product of GodSpeed Technologies.
+  The application has undergone testing before distribution.
+  If you are downloading from our official website, you can
+  confidently proceed with the installation.
+</p>
+
+    <button class="download-guide-continue"
+            onclick="closeDownloadGuide()">
+      Got it
+    </button>
+
+  </div>
+</div>
+<!-- WORK WITH US POPUP -->
+<div id="work-popup" class="work-popup-overlay">
+  <div class="work-popup">
+
+    <button class="work-popup-close" onclick="closeWorkPopup()">
+      &times;
+    </button>
+
+    <p class="eyebrow">BE PART OF THE VISION</p>
+
+    <h2>Work With GodSpeed Technologies</h2>
+
+    <p>
+      We believe great things are built by people who share a vision,
+      bring valuable skills, and are committed to creating meaningful
+      impact.
+    </p>
+
+    <h3>Explore Opportunities</h3>
+
+    <div class="work-options">
+      <div>
+        <strong>Join Our Team</strong>
+        <p>Contribute your skills, experience and ideas.</p>
+      </div>
+
+      <div>
+        <strong>Partnerships</strong>
+        <p>Explore business and strategic collaborations.</p>
+      </div>
+
+      <div>
+        <strong>Professional Collaboration</strong>
+        <p>Work with us on projects, innovation and development.</p>
+      </div>
+    </div>
+
+    <a href="contact.html" class="download-main">
+      Connect With Our Team
+    </a>
+
+  </div>
+</div>
+
 </body>
 </html>
