@@ -1669,3 +1669,170 @@ img {
     transform: translateX(-100%);
   }
 }
+/* GODSPEED TECHNOLOGY SERVICES — ADDITIONAL STYLES */
+.gs-services-section {
+  padding: 75px 5%;
+  background: #071426;
+  border-top: 1px solid rgba(217, 173, 82, 0.25);
+  border-bottom: 1px solid rgba(217, 173, 82, 0.25);
+}
+
+.gs-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gs-service-card {
+  min-width: 0;
+  padding: 27px 23px;
+  background: linear-gradient(145deg, #13243a, #0c192b);
+  border: 1px solid rgba(217, 173, 82, 0.25);
+  border-radius: 14px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.gs-service-card:hover {
+  transform: translateY(-4px);
+  border-color: #d9ad52;
+}
+
+.gs-service-card h3 {
+  margin: 18px 0 8px;
+  color: #f3d58b;
+  font-size: 21px;
+}
+
+.gs-service-card p {
+  margin-bottom: 0;
+  color: #b9c4d3;
+  font-size: 14px;
+}
+
+@media (max-width: 1050px) {
+  .gs-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .gs-services-section {
+    padding: 55px 20px;
+  }
+
+  .gs-services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* GODSPEED PRODUCTS SHOWCASE */
+.gs-showcase-section {
+  padding: 75px 5%;
+  background: #09172a;
+  border-top: 1px solid rgba(217, 173, 82, 0.2);
+}
+
+.gs-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gs-showcase-card {
+  overflow: hidden;
+  background: #13243a;
+  border: 1px solid rgba(217, 173, 82, 0.25);
+  border-radius: 14px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.gs-showcase-card:hover {
+  transform: translateY(-5px);
+  border-color: #d9ad52;
+}
+
+.gs-showcase-card img {
+  display: block;
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  background: #0c192b;
+}
+
+.gs-showcase-content {
+  padding: 22px;
+}
+
+.gs-showcase-content h3 {
+  margin: 0 0 10px;
+  color: #f3d58b;
+  font-size: 21px;
+}
+
+.gs-showcase-content p {
+  color: #b9c4d3;
+  font-size: 14px;
+  line-height: 1.7;
+  min-height: 72px;
+}
+
+.gs-showcase-content a {
+  display: inline-block;
+  margin-top: 12px;
+  color: #f3d58b;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.gs-showcase-content a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .gs-showcase-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .gs-showcase-section {
+    padding: 55px 20px;
+  }
+
+  .gs-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gs-showcase-card img {
+    height: 220px;
+  }
+}
+/* FX ARENA LEARN MORE BUTTON */
+.product-status-actions {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+.product-learn-button {
+  display: inline-block;
+  padding: 7px 15px;
+  background: #d9ad52;
+  color: #071426;
+  border: 1px solid #d9ad52;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.product-learn-button:hover {
+  background: transparent;
+  color: #f3d58b;
+}
