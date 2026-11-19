@@ -228,7 +228,7 @@ section {
 .eyebrow {
   margin: 0 0 12px;
   color: var(--gold);
-  font-size: 12px;
+  font-size: 45px;
   font-weight: 900;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -1723,7 +1723,7 @@ img {
   }
 
   .gs-services-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: none;
   }
 }
 
@@ -1835,4 +1835,141 @@ img {
 .product-learn-button:hover {
   background: transparent;
   color: #f3d58b;
+}
+
+/* GODSPEED HORIZONTAL CARD SCROLLING */
+
+.horizontal-scroll {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 12px 5px 24px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: auto;
+  scrollbar-color: #c69b42 #e5e9ef;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  height: 10px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-track {
+  background: #e5e9ef;
+  border-radius: 20px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb {
+  background: #c69b42;
+  border-radius: 20px;
+}
+
+.horizontal-scroll > article {
+  flex: 0 0 calc((100% - 40px) / 3);
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+/* Six sectors: two visible rows */
+.sectors-scroll {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, auto);
+  overflow-x: auto;
+}
+
+.sectors-scroll > article {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .horizontal-scroll > article {
+    flex: 0 0 85%;
+  }
+
+  .sectors-scroll {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .sectors-scroll > article {
+    flex: 0 0 85%;
+  }
+}
+
+/* WHAT WE OFFER: TWO VISIBLE CARDS ON DESKTOP */
+.gs-services-grid.horizontal-scroll > article {
+  flex: 0 0 calc((100% - 20px) / 2);
+}
+
+/* ONE CARD ON MOBILE */
+@media (max-width: 768px) {
+  .gs-services-grid.horizontal-scroll > article {
+    flex: 0 0 85%;
+  }
+}
+
+/* GODSPEED SERVICES - ELECTRIC EDGE GLOW ONLY */
+
+.gs-services-grid .gs-service-card {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Blue energy travelling around the edges */
+.gs-services-grid .gs-service-card::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  pointer-events: none;
+  background: conic-gradient(
+    from var(--gs-glow-angle, 0deg),
+    transparent 0deg,
+    transparent 220deg,
+    #087bff 260deg,
+    #00d9ff 285deg,
+    #ffffff 300deg,
+    #087bff 320deg,
+    transparent 350deg,
+    transparent 360deg
+  );
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+    mask:
+  linear-gradient(#fff 0 0) content-box,
+  linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  filter: drop-shadow(0 0 4px #087bff)
+          drop-shadow(0 0 7px #00bfff);
+
+  animation: gs-electric-edge 5s linear infinite;
+}
+
+@property --gs-glow-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes gs-electric-edge {
+  to {
+    --gs-glow-angle: 360deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gs-services-grid .gs-service-card::after {
+    animation: none;
+  }
 }

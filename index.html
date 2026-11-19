@@ -156,7 +156,7 @@
         <p>Explore the areas through which GodSpeed Technologies aims to make lasting impact.</p>
       </div>
 
-      <div class="sector-grid">
+     <div class="sector-grid horizontal-scroll sectors-scroll">
 
         <article class="sector-card" id="technology">
           <span class="sector-icon">💻</span>
@@ -225,11 +225,11 @@
     <section class="gs-services-section" id="technology-services">
       <div class="section-heading">
         <p class="eyebrow">WHAT WE OFFER</p>
-        <h2>Technology Services</h2>
+        <h2>Our Technology Services</h2>
         <p>Practical digital solutions, from ideas to fully functioning systems.</p>
       </div>
 
-      <div class="gs-services-grid">
+      <div class="gs-services-grid horizontal-scroll">
 
         <article class="gs-service-card">
           <span class="sector-icon">📱</span>
@@ -462,7 +462,7 @@
         <p>Digital products and platforms developed to solve real-world challenges.</p>
       </div>
 
-      <div class="gs-showcase-grid">
+      <div class="gs-showcase-grid horizontal-scroll">
 
         <article class="gs-showcase-card">
           <img src="images/pd1.jpg" alt="FX ARENA trading application">
@@ -809,6 +809,110 @@ window.downloadApp = function(button) {
 
   </div>
 </div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const slider = document.querySelector(
+    ".gs-services-grid.horizontal-scroll"
+  );
+
+  if (!slider) return;
+
+  const originalCards = [...slider.querySelectorAll(".gs-service-card")];
+  if (originalCards.length < 2) return;
+
+  // Clone cards to create a continuous carousel
+  originalCards.forEach(card => {
+    const clone = card.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    slider.appendChild(clone);
+  });
+
+  let timer;
+  let paused = false;
+  let position = 0;
+
+  const gap = () =>
+    parseFloat(getComputedStyle(slider).gap) || 20;
+
+  const step = () =>
+    originalCards[0].getBoundingClientRect().width + gap();
+
+  function scheduleNext() {
+    clearTimeout(timer);
+
+    if (paused || document.hidden) return;
+
+    timer = setTimeout(() => {
+      const nextPosition = position + step();
+
+      slider.scrollTo({
+        left: nextPosition,
+        behavior: "smooth"
+      });
+
+      timer = setTimeout(() => {
+        position = nextPosition;
+
+        // Return invisibly to the original cards
+        if (position >= originalCards.length * step() - 2) {
+          slider.scrollTo({
+            left: 0,
+            behavior: "instant"
+          });
+          position = 0;
+        }
+
+        scheduleNext();
+      }, 800);
+
+    }, 5000);
+  }
+
+  function pause() {
+    paused = true;
+    clearTimeout(timer);
+  }
+
+  function resume() {
+    paused = false;
+
+    // Continue from the card currently nearest to the visitor
+    position = Math.round(slider.scrollLeft / step()) * step();
+
+    if (position >= originalCards.length * step() - 2) {
+      position = 0;
+      slider.scrollTo({ left: 0, behavior: "instant" });
+    }
+
+    scheduleNext();
+  }
+
+  slider.addEventListener("pointerdown", pause);
+  window.addEventListener("pointerup", resume);
+  window.addEventListener("pointercancel", resume);
+
+  slider.addEventListener("mouseenter", pause);
+  slider.addEventListener("mouseleave", resume);
+
+  slider.addEventListener("wheel", () => {
+    pause();
+    clearTimeout(timer);
+    timer = setTimeout(resume, 5000);
+  }, { passive: true });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) pause();
+    else resume();
+  });
+
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    scheduleNext();
+  }
+});
+</script>
+
 
 </body>
 </html>
